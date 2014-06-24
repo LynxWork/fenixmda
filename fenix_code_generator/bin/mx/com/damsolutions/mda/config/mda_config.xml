@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+
+<config>
+    <prefix type="table" value=""/>
+    <posfix/>
+    
+    <!-- ********************************************************************************
+    Configuraciones de nombrado para bases de datos 
+    ************************************************************************************* -->
+    <separator type="table" value="_"/>
+
+    
+</config>

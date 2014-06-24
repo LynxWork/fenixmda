@@ -1,0 +1,19 @@
+<gui:components>
+	<gui:inputText>
+		[[!CDATA
+		    <ice:textLabel value="{[[labelName]]}" />
+			<ice:inputText name="{[[propertyName]]}" value="{[[className]].[[propertyName]]}" />
+			<ice:error value="{[[labelName]]}" />
+		!]]
+	</gui:inputText>
+	<gui:outputText>
+		[[!CDATA
+			<ice:inputText name="{[[className]].[[propertyName]]}" value="{[[className]].[[propertyName]]}" />
+		!]]
+	</gui:outputText>
+	<gui:textLabel>
+		[[!CDATA
+			<ice:textLabel name="{[[className]].[[propertyName]]}" value="{[[className]].[[propertyName]]}" />
+		!]]
+	</gui:textLabel>
+</gui:components>
