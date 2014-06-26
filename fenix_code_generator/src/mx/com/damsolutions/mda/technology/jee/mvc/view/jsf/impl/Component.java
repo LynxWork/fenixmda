@@ -12,7 +12,38 @@ public abstract class Component {
 	protected String forComponent;
 	protected String entityName;
 	protected String entityProperty;
+	protected String event;
+	protected String render;
+	protected String execute;
+	protected String address;
+	protected String interval;
+	protected String enabled;
 	
+	public String getInterval() {
+		return interval;
+	}
+
+	public void setInterval(String interval) {
+		this.interval = interval;
+	}
+
+	public String getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(String enabled) {
+		this.enabled = enabled;
+	}
+
+	
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
 	public String getEntityName() {
 		return entityName;
 	}
@@ -109,5 +140,32 @@ public abstract class Component {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+
+	public String getEvent() {
+		return event;
+	}
+
+	public void setEvent(String event) {
+		this.event = event;
+	}
+
+	public String getRender() {
+		return render;
+	}
+
+	public void setRender(String render) {
+		this.render = render;
+	}
+
+	public String getExecute() {
+		return execute;
+	}
+
+	public void setExecute(String execute) {
+		this.execute = execute;
+	}
+
+	
 	
 }
