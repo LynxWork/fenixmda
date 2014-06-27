@@ -166,6 +166,14 @@ public abstract class Component {
 		this.execute = execute;
 	}
 
+	public String build() {
+		StringBuilder resVal = new StringBuilder("");
+		if(getForComponent()!=null && getForComponent().length()>0){
+			resVal.append(" for=\""+ getForComponent() +"\" ");
+		}
+		return resVal.toString();
+	}
+
 	
 	
 }

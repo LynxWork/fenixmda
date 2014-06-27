@@ -1,6 +1,5 @@
 package mx.com.damsolutions.fenix.code.generator.classes.impl;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -28,7 +27,7 @@ public class JClass implements IClass {
 		this.name = name;
 	}
 
-	public String toString(){
+	public String build(){
 		StringBuilder sb = new StringBuilder();
 		sb.append(getAccessModifier());
 		sb.append(CharacterUtil.SPACE_VALUE);

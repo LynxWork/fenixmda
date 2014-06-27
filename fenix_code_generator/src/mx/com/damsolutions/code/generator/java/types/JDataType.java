@@ -41,7 +41,7 @@ public class JDataType implements IDataType{
 		return null;
 	}
 
-	public String toString(){
+	public String build(){
 		return getName();
 	}
 }

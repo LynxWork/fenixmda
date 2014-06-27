@@ -20,7 +20,7 @@ public class JFloat implements IFloat {
 		return sb.toString();
 	}
 
-	public String toString(){
+	public String build(){
 		return getName();
 	}
 }

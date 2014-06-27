@@ -23,7 +23,7 @@ public class JCharacter implements ICharacter{
 		return sb.toString();
 	}
 
-	public String toString(){
+	public String build(){
 		return getName();
 	}
 }

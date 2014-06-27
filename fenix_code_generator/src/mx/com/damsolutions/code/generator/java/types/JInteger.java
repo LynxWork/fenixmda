@@ -20,7 +20,7 @@ public class JInteger implements IInteger {
 		return sb.toString();
 	}
 
-	public String toString(){
+	public String build(){
 		return getName();
 	}
 }

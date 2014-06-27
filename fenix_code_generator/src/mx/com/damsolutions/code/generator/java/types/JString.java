@@ -20,7 +20,7 @@ public class JString implements IString {
 		return sb.toString();
 	}
 
-	public String toString(){
+	public String build(){
 		return getName();
 	}
 }

@@ -10,6 +10,7 @@ public class CommandButton extends Component {
 		ajax.append("event=\""+ getEvent()+ " \"");
 		ajax.append("render=\""+ getRender()+ " \"");
 		ajax.append("execute=\""+ getExecute()+" \"");
+		ajax.append(" " + buildStyleClass() +" ");
 		ajax.append("/>");
 		return ajax.toString();
 	}

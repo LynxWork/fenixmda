@@ -20,7 +20,7 @@ public class JLong implements ILong {
 		return sb.toString();
 	}
 
-	public String toString(){
+	public String build(){
 		return getName();
 	}
 }
