@@ -4,7 +4,7 @@ import mx.com.damsolutions.mda.util.NamingConvention;
 
 public class Push extends Component {
 	@Override
-	public String toString() {
+	public String build() {
 		StringBuilder push = new StringBuilder();
 		push.append("<"+NamingConvention.getJsfAjaxPrefix()+"push ");
 		push.append("id=\""+ getId()+ " \"");

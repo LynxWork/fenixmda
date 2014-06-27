@@ -4,7 +4,7 @@ import mx.com.damsolutions.mda.util.NamingConvention;
 
 public class JsFunction extends Component {
 	@Override
-	public String toString() {
+	public String build() {
 		StringBuilder Function = new StringBuilder();
 		Function.append("<"+NamingConvention.getJsfAjaxPrefix()+"jsFunction ");
 		Function.append("name=\""+ getName()+ " \"");

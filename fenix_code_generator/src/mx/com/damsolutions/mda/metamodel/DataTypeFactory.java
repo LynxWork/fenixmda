@@ -3,10 +3,6 @@ package mx.com.damsolutions.mda.metamodel;
 
 public class DataTypeFactory {
 
-	private DataTypeFactory(){
-		
-	}
-	
 	/**
 	 * Regresa el tipo de dato a partir del nombre asignado por parametro
 	 * @param type

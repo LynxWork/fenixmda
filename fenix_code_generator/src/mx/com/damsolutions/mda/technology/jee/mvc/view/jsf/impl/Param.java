@@ -4,7 +4,7 @@ import mx.com.damsolutions.mda.util.NamingConvention;
 
 public class Param extends Component {
 	
-	public String toString() {
+	public String build() {
 	StringBuilder param = new StringBuilder();
 	param.append("<"+NamingConvention.getJsfAjaxPrefix()+"param ");
 	param.append("event=\""+ getEvent()+ " \"");

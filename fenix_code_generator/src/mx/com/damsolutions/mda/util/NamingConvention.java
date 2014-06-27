@@ -9,7 +9,7 @@ public class NamingConvention {
 	private static final String SUBFIX_PROPERTY_ID = "Id";
 
 	/**
-	 * Funcion que devuelve el nombre de la entidad a ser generada
+	 * Funcion que devuelve el nombre de la entidad a ser geb¡nerada
 	 * **/
 	public static String getEntityName(String entityName) {
 		String resVal;
@@ -123,7 +123,7 @@ public class NamingConvention {
 
 	/**
 	 * Funcion que construye el nombre de la llave primaria a partir del nombre
-	 * de la entidad Si la entidad se llama UserRol la llave primaria es USER_ROL_ID
+	 * de la entidad Si la entidad se llama UserRol la tabla es USER_ROL_ID
 	 * **/
 	public static String getPropertyPrimaryKeyName(String entityName) {
 		// Se obtiene el nombre del setter

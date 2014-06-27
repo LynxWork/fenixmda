@@ -55,7 +55,7 @@ public class InputTextField extends TextField{
 	}
 
 	@Override
-	public String toString() {
+	public String build() {
 		//propiedad=\"" + string + "\" "
 		StringBuilder resVal = new StringBuilder(); 
 		resVal.append("<"+NamingConvention.getJsfHtmlPrefix()+"inputText ");

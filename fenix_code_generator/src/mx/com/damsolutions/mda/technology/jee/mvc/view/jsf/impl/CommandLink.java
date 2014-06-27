@@ -4,7 +4,7 @@ import mx.com.damsolutions.mda.util.NamingConvention;
 
 public class CommandLink extends Component {
 	@Override
-	public String toString() {
+	public String build() {
 		StringBuilder ajax = new StringBuilder();
 		ajax.append("<"+NamingConvention.getJsfAjaxPrefix()+"commandLink ");
 		ajax.append("event=\""+ getEvent()+ " \"");

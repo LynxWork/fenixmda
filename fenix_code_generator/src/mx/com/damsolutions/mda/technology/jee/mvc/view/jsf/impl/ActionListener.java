@@ -4,7 +4,7 @@ import mx.com.damsolutions.mda.util.NamingConvention;
 
 public class ActionListener extends Component {
 	@Override
-	public String toString() {
+	public String build() {
 		StringBuilder ajax = new StringBuilder();
 		ajax.append("<"+NamingConvention.getJsfAjaxPrefix()+"actionListener ");
 		ajax.append("binding=\"#{" + NamingConvention.getClassControllerName( getEntityName() ) +"."+ getEntityProperty()+"\"} ");

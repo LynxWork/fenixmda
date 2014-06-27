@@ -4,7 +4,7 @@ import mx.com.damsolutions.mda.util.NamingConvention;
 
 public class Poll extends Component {
 	@Override
-	public String toString() {
+	public String build() {
 		StringBuilder poll = new StringBuilder();
 		poll.append("<"+NamingConvention.getJsfAjaxPrefix()+"poll ");
 		poll.append("id=\""+ getId()+ " \"");

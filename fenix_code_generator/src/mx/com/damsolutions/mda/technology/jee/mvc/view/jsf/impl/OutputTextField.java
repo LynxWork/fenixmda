@@ -7,7 +7,7 @@ public class OutputTextField extends TextField {
 	
 	private static final String TAG_NAME = "outputText";
 	@Override
-	public String toString() {
+	public String build() {
 		StringBuilder resVal = new StringBuilder(); 
 		resVal.append("<"+NamingConvention.getJsfHtmlPrefix()+TAG_NAME+" ");
 		resVal.append("id=\"" + getId() + "OutTxt\" ");

@@ -21,7 +21,7 @@ public class InplaceInput extends InputTextField {
 	}
 
 	@Override
-	public String toString() {
+	public String build() {
 		StringBuilder resVal = new StringBuilder(); 
 		resVal.append("<"+NamingConvention.getJsfImplPrefix()+"inplaceInput ");
 		resVal.append( buildId() );

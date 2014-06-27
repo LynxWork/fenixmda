@@ -3,7 +3,7 @@ package mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl;
 import mx.com.damsolutions.mda.util.NamingConvention;
 
 public class CommandButton extends Component {
-	public String toString() {
+	public String build() {
 		//propiedad=\"" + string + "\" "
 		StringBuilder ajax = new StringBuilder();
 		ajax.append("<"+NamingConvention.getJsfAjaxPrefix()+"CommandButton ");
