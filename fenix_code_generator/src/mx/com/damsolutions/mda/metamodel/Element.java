@@ -7,6 +7,7 @@ public class Element {
     private String name;
     private String title;
     private String description;
+    private Relation relations;
     
 	public String getId() {
 		return id;

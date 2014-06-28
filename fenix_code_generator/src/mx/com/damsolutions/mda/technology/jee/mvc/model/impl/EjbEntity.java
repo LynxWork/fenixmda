@@ -7,6 +7,7 @@ import java.util.List;
 import mx.com.damsolutions.mda.core.generator.dml.DMLJpqlCodeGenerator;
 import mx.com.damsolutions.mda.metamodel.Entity;
 import mx.com.damsolutions.mda.metamodel.Property;
+import mx.com.damsolutions.mda.technology.jee.definitions.JEEAnotationsDefinitions;
 import mx.com.damsolutions.mda.util.MapDataTypes;
 import mx.com.damsolutions.mda.util.NamingConvention;
 
@@ -34,8 +35,8 @@ public class EjbEntity extends Entity{
 		this.setEntitySup(entity.getEntitySup());
 	}
 	
-	@Override
-	public String toString() {
+
+	public String build() {
 		StringBuilder sb = new StringBuilder();
 
 
@@ -60,6 +61,9 @@ public class EjbEntity extends Entity{
 				"import javax.persistence.OneToMany;" +
 				"import javax.persistence.SequenceGenerator;" +
 				"import javax.persistence.Table;");
+
+		sb.append("import javax.persistence.OneToMany;");
+		
 		/****************************************************************************************************/
 		
 		
@@ -146,7 +150,7 @@ public class EjbEntity extends Entity{
 	
 	private String getNamedQueriesAnotation(List<String> namedQueryList){
 		StringBuffer sb = new StringBuffer();
-		sb.append("@NamedQueries({");
+		sb.append(JEEAnotationsDefinitions.PERSISTENCE_ANOTATION_NAMED_QUERIES+"({");
 		int i=0;
 		for(String namedQuery: namedQueryList){
 			if(namedQueryList.size()!=i){
@@ -164,7 +168,7 @@ public class EjbEntity extends Entity{
 		StringBuffer sb = new StringBuffer();
 		DMLJpqlCodeGenerator gen = DMLJpqlCodeGenerator.getInstance();
 		 //" @NamedQuery(name = \"CatError.findAll\", query = \"select o from CatError o\")})" +
-		sb.append("@NamedQuery(");
+		sb.append(JEEAnotationsDefinitions.PERSISTENCE_ANOTATION_NAMED_QUERY+"(");
 		if(entityPropertyName!=null && entityPropertyName.length()>0){
 			sb.append("name = \""+ getName() +"."+queryType+ NamingConvention.getPropertyUpperName(entityPropertyName)+ "\",");
 		}else{
@@ -184,24 +188,23 @@ public class EjbEntity extends Entity{
 
 	private String getEntityAnotation(){
 		StringBuffer sb = new StringBuffer();
-		sb.append("@Entity");
+		sb.append(JEEAnotationsDefinitions.PERSISTENCE_ANOTATION_ENTITY);
 		return sb.toString();
-		
 	}
 	
 	private String getTableNameAnotation(){
 		StringBuffer sb = new StringBuffer();
-		sb.append("@Table(name = \""+NamingConvention.getTableName(getName())+"\")");
+		sb.append(JEEAnotationsDefinitions.PERSISTENCE_ANOTATION_TABLE+"(name = \""+NamingConvention.getTableName(getName())+"\")");
 		return sb.toString();
 	}
 
 	public String buildPrimaryKeyProperty(String type){
 		StringBuffer sb = new StringBuffer();
-		sb.append("@Id");
+		sb.append(JEEAnotationsDefinitions.PERSISTENCE_ANOTATION_ID);
 		if(type.equals(this.PRIMARY_KEY_TYPE_AUTO)){
-			sb.append("@GeneratedValue( strategy = GenerationType.IDENTITY )");
+	sb.append(JEEAnotationsDefinitions.PERSISTENCE_ANOTATION_GENERATED_VALUE+ "( strategy = GenerationType.IDENTITY )");
 		}
-		sb.append( "@Column( name = \""+ NamingConvention.getTablePrimaryKeyName(getName()) + "\" )" );
+		sb.append( JEEAnotationsDefinitions.PERSISTENCE_ANOTATION_COLUMN+"( name = \""+ NamingConvention.getTablePrimaryKeyName(getName()) + "\" )" );
 		sb.append( "private Long " + NamingConvention.getPropertyPrimaryKeyName(getName()) + ";" );
 		return sb.toString();
 	}
@@ -209,7 +212,7 @@ public class EjbEntity extends Entity{
 	public String getColumnAnotation(Property property){
 		//Construir las propiedades
 		StringBuilder sb = new StringBuilder();
-		sb.append("@Column(name=\"" +NamingConvention.getColumnName(property.getName())+ "\", nullable = "+property.isNillable()+", length = "+property.getLenght()+")");
+		sb.append(JEEAnotationsDefinitions.PERSISTENCE_ANOTATION_COLUMN+"(name=\"" +NamingConvention.getColumnName(property.getName())+ "\", nullable = "+property.isNillable()+", length = "+property.getLenght()+")");
 		return sb.toString();
 	}
 	

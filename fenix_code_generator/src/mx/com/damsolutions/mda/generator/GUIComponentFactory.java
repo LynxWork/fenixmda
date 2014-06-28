@@ -59,5 +59,4 @@ public class GUIComponentFactory {
 		return component;
 	}
 
-
 }
