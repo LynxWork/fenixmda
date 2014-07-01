@@ -1,7 +1,7 @@
 package mx.com.damsolutions.xml;
 
-import org.apache.xml.serialize.OutputFormat;
-import org.apache.xml.serialize.XMLSerializer;
+//import org.apache.xml.serialize.OutputFormat;
+//import org.apache.xml.serialize.XMLSerializer;
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
@@ -23,7 +23,7 @@ public class XmlFormatter {
 
 	public XmlFormatter() {
 	}
-
+/*
 	public String format(String unformattedXml) {
 		try {
 			final Document document = parseXmlFile(unformattedXml);
@@ -66,5 +66,6 @@ public class XmlFormatter {
 				+ "    </Query>\n\n\n\n\n" + "</QueryMessage>";
 		System.out.println(new XmlFormatter().format(unformattedXml));
 	}
+	*/
 
 }

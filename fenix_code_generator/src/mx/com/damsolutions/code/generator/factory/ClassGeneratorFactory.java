@@ -1,7 +1,7 @@
 package mx.com.damsolutions.code.generator.factory;
 
-import mx.com.damsolutions.mda.core.generator.DDLMySqlCodeGenerator;
-import mx.com.damsolutions.mda.core.generator.IDDLCodeGenerator;
+import mx.com.damsolutions.mda.core.generator.ddl.DDLMySqlCodeGenerator;
+import mx.com.damsolutions.mda.core.generator.ddl.IDDLCodeGenerator;
 
 public class ClassGeneratorFactory {
 

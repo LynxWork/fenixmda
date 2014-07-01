@@ -1,5 +1,7 @@
 package mx.com.damsolutions.mda.metamodel;
 
+import java.util.List;
+
 public class Element {
 
 	private String namespace;
@@ -7,7 +9,7 @@ public class Element {
     private String name;
     private String title;
     private String description;
-    private Relation relations;
+    private List <Association> association;
     
 	public String getId() {
 		return id;
@@ -39,5 +41,10 @@ public class Element {
 	public void setNamespace(String namespace) {
 		this.namespace = namespace;
 	}
-
+	public List <Association> getAssociation() {
+		return association;
+	}
+	public void setAssociation(List <Association> association) {
+		this.association = association;
+	}
 }

@@ -38,6 +38,4 @@ public class Entity extends Element{
 		this.type = type;
 	}
 
-
-
 }

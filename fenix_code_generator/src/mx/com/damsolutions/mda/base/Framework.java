@@ -5,8 +5,8 @@ public class Framework {
 	private String name;
 	private String type;
 	private String version;
-	private String autor;
-	Language language;
+	private String vendor;
+	private Language language;
 	
 	public String getType() {
 		return type;
@@ -32,12 +32,13 @@ public class Framework {
 	public void setVersion(String version) {
 		this.version = version;
 	}
-	public String getAutor() {
-		return autor;
+	public String getVendor() {
+		return vendor;
 	}
-	public void setAutor(String autor) {
-		this.autor = autor;
+	public void setVendor(String vendor) {
+		this.vendor = vendor;
 	}
+
 	
 
 	

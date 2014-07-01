@@ -73,7 +73,7 @@ public class FormCmp extends Component{
 			inputText.setPattern(p.getRegularExpression().getConfiguration());
 			inputText.setRequired(Boolean.toString(p.isRequired()));
 			inputText.setStyleClass(styleClass);		
-			sb.append(inputText.toString());
+			sb.append(inputText.build());
 		}
 
 		//End Implementation

@@ -3,7 +3,7 @@ package mx.com.damsolutions.mda.base;
 public class Language {
 	private String name;
 	private String version;
-	private String autor;
+	private String vendor;
 	
 	public String getName() {
 		return name;
@@ -17,10 +17,10 @@ public class Language {
 	public void setVersion(String version) {
 		this.version = version;
 	}
-	public String getAutor() {
-		return autor;
+	public String getVendor() {
+		return vendor;
 	}
-	public void setAutor(String autor) {
-		this.autor = autor;
+	public void setVendor(String vendor) {
+		this.vendor = vendor;
 	}
 }

@@ -14,7 +14,7 @@ public class InputTextFieldCmp extends InplaceInput{
 	}
 
 	@Override
-	public String toString() {
+	public String build() {
 		StringBuilder resVal = new StringBuilder(); 
 		resVal.append("<"+NamingConvention.getJsfHtmlPrefix()+"panelGrid columns=\"3\"> ");
 		//Label
@@ -34,7 +34,7 @@ public class InputTextFieldCmp extends InplaceInput{
 		inplaceInput.setPattern(pattern);
 		inplaceInput.setRequired(required);
 		inplaceInput.setStyleClass(styleClass);
-		resVal.append( inplaceInput.toString() );
+		resVal.append( inplaceInput.build() );
 		//Message
 		Message message = new Message();
 		message.setForComponent(inplaceInput.buildNameId());

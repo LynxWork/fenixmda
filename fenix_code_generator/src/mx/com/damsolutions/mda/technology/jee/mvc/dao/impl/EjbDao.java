@@ -2,6 +2,7 @@ package mx.com.damsolutions.mda.technology.jee.mvc.dao.impl;
 
 import mx.com.damsolutions.mda.metamodel.Entity;
 import mx.com.damsolutions.mda.metamodel.Property;
+import mx.com.damsolutions.mda.technology.jee.definitions.AnotationsDefinitions;
 import mx.com.damsolutions.mda.util.NamingConvention;
 import mx.com.damsolutions.mda.util.MapDataTypes;
 
@@ -37,7 +38,7 @@ public class EjbDao extends Entity{
 		/****************************************************************************************************/
 		//Class name
 		sb.append(getStatelessAnotation());
-		sb.append("@TransactionManagement(TransactionManagementType.CONTAINER)");
+		sb.append(AnotationsDefinitions.TRANSACTION_PERSISTANT_CONTAINER);
 		sb.append(" public class "+getName()+ "Dao" +" { ");
 		//Log events
 		sb.append(getInjectAnotation());
@@ -52,6 +53,7 @@ public class EjbDao extends Entity{
 		sb.append( buildMethodFindById() );
 		sb.append( buildMethodListFindByProperty() );
 		sb.append( buildMethodFindAll() );
+		sb.append( buildMethodFindByFilter() );
 		//Create Save Methos*****************************************************
 		sb.append( buildMethodSave() );
 		//Create Update Methos*****************************************************
@@ -60,9 +62,17 @@ public class EjbDao extends Entity{
 	}
 	
 	
+	private String buildMethodFindByFilter() {
+		StringBuilder sb = new StringBuilder();
+		sb.append( AnotationsDefinitions.TRANSACTION_REQUIRED );
+		
+		return sb.toString();
+	}
+
+
 	private String buildMethodFindById(){
 		StringBuilder sb = new StringBuilder();
-		sb.append( "@TransactionAttribute(TransactionAttributeType.REQUIRED)" );
+		sb.append( AnotationsDefinitions.TRANSACTION_REQUIRED );
 		sb.append( " public "+getName()+" findById(Long "+ NamingConvention.getPropertyPrimaryKeyName(getName()) +" ) {" );
 			sb.append( " log.info(\"FindById\"+ " + NamingConvention.getPropertyPrimaryKeyName(getName()) + " );" );
 			sb.append( " "+NamingConvention.getPropertyName(getName())+"EventSrc.fire("+NamingConvention.getPropertyPrimaryKeyName(getName())+");");
@@ -78,7 +88,7 @@ public class EjbDao extends Entity{
 		String dataTypeName = MapDataTypes.getJavaDataType(property.getDataType());
 		String methodName = "findBy"+ NamingConvention.getPropertyUpperName(property.getName());
 		String returnValueName = getName();
-		sb.append( "@TransactionAttribute(TransactionAttributeType.REQUIRED)" );
+		sb.append( AnotationsDefinitions.TRANSACTION_REQUIRED );
 		sb.append( "public " + returnValueName + " "+ methodName + "("+ dataTypeName + " " + propertyValueName +" ) {" );
 			sb.append( " log.info(\"FindByProperty\"+" + propertyValueName + " );" );
 			sb.append( " CriteriaBuilder cb = em.getCriteriaBuilder(); ");
@@ -97,7 +107,7 @@ public class EjbDao extends Entity{
 		String propertyName = NamingConvention.getPropertyUpperName(getName());
 		String methodName = "findAll";
 		String returnValueName = getName();
-		sb.append( "@TransactionAttribute(TransactionAttributeType.REQUIRED)" );
+		sb.append( AnotationsDefinitions.TRANSACTION_REQUIRED );
 		sb.append( "public " + returnValueName + " "+ methodName + "( ) {" );
 			sb.append( " log.info(\"FindByProperty\" + " + propertyName + " );" );
 			sb.append( " CriteriaBuilder cb = em.getCriteriaBuilder(); ");
@@ -122,7 +132,7 @@ public class EjbDao extends Entity{
 		StringBuilder sb = new StringBuilder();
 		String objectName = NamingConvention.getPropertyUpperName(getName());
 		String className = getName();
-		sb.append( "@TransactionAttribute(TransactionAttributeType.REQUIRED)" );
+		sb.append( AnotationsDefinitions.TRANSACTION_REQUIRED );
 		sb.append( "public void save(" + className + " " + objectName +" ) throws Exception {" );
 			sb.append( "log.info(\"Registering\" + "+ className +");");
 			sb.append( "em.persist(" + objectName + ");");

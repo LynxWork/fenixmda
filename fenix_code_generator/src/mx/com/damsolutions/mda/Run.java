@@ -1,6 +1,6 @@
 package mx.com.damsolutions.mda;
 
-import mx.com.damsolutions.mda.core.xml.BuildModelXml;
+import mx.com.damsolutions.mda.core.generator.BuildModelXml;
 
 public class Run {
 
@@ -9,8 +9,6 @@ public class Run {
 	 */
 	public static void main(String[] args) {
 		System.out.println("-->");
-		BuildModelXml buildModel = new BuildModelXml();
-		buildModel.buildModel();
 	}
 
 }
