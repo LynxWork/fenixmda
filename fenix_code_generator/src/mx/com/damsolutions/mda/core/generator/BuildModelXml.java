@@ -97,6 +97,7 @@ public class BuildModelXml {
 		int totalEntity = listOfEntity.getLength();
 		log.debug("Total no of entity: " + totalEntity);
 		ArrayList<Property> properties = null;
+		ArrayList<Property> association = null;
 		//Se procesa la lista de entidades
 		for(int s=0; s<listOfEntity.getLength() ; s++){
 			Node entityNode = listOfEntity.item(s);
@@ -119,6 +120,9 @@ public class BuildModelXml {
 				//Se agregan las propiedades a la entidad
 				entity.setProperties(properties);
 				entities.add(entity);
+				//Add the association of the entity
+				NodeList entityAssociationList = entityElement.getElementsByTagName("association");
+				association = new ArrayList<Property>();
 			}
 		}
 		return entities;

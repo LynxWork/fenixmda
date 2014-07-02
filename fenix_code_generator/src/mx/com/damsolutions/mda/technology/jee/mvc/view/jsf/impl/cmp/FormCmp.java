@@ -44,8 +44,7 @@ public class FormCmp extends Component{
 		return sb.toString();
 	}
 
-	@Override
-	public String toString() {
+	public String build() {
 
 		StringBuilder sb = new StringBuilder();
 		//Header
