@@ -34,7 +34,10 @@ public class EjbDao extends Entity{
 		sb.append("import javax.enterprise.event.Event;");
 		sb.append("import javax.inject.Inject;");
 		sb.append("import javax.persistence.EntityManager;");
+		sb.append("import javax.ejb.*;");
 		sb.append("import java.util.logging.Logger;");
+		
+		//Import entity
 		/****************************************************************************************************/
 		//Class name
 		sb.append(getStatelessAnotation());

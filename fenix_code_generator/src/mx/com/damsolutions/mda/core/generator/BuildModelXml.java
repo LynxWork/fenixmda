@@ -17,7 +17,6 @@ import mx.com.damsolutions.mda.metamodel.DataTypeFactory;
 import mx.com.damsolutions.mda.metamodel.Entity;
 import mx.com.damsolutions.mda.metamodel.Property;
 import mx.com.damsolutions.mda.metamodel.RegularExpressionsFactory;
-import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.cmp.FormCmp;
 
 
 public class BuildModelXml {
@@ -26,10 +25,10 @@ public class BuildModelXml {
 	
 	Document doc;
 	
-	private String namespaceDomainName;
-	private String namespaceDaoName;
-	private String namespaceServiceName;
-	private String namespaceControllerName;
+	private String namespaceDomain;
+	private String namespaceDao;
+	private String namespaceService;
+	private String namespaceController;
 	private String xmlModelPath;
 	
 	public BuildModelXml(String xmlModelPath){
@@ -59,14 +58,15 @@ public class BuildModelXml {
 			String moduleName = entityDomain.getAttribute("name");
 			
 			//Se arman los paquetes*****************************************************
-			String packageDomainName = "com.lynxwork.erp."+modelName+"."+moduleName+".domain";
-			String packageDaoName = "com.damsolutions.erp."+modelName+"."+moduleName+".dao";
-			String packageServiceName = "com.damsolutions.erp."+modelName+"."+moduleName+".service";
-			String packageControllerName = "com.damsolutions.erp."+modelName+"."+moduleName+".controller";
-			log.debug("Domain Package Name: " + packageDomainName);
-			log.debug("Dao Package Name: " + packageDaoName);
-			log.debug("Service Package Name: " + packageServiceName);
-			log.debug("Controller Package Name: " + packageControllerName);
+			String baseNamespace = "com.lynxwork.app.rh.";
+			this.namespaceDomain = baseNamespace+modelName+"."+moduleName+".domain";
+			this.namespaceDao = baseNamespace+modelName+"."+moduleName+".dao";
+			this.namespaceService = baseNamespace+modelName+"."+moduleName+".service";
+			this.namespaceController = baseNamespace+modelName+"."+moduleName+".controller";
+			log.debug("Domain Namespace: " + namespaceDomain);
+			log.debug("Dao Package Name: " + namespaceDao);
+			log.debug("Service Package Name: " + namespaceService);
+			log.debug("Controller Package Name: " + namespaceController);
 			//************************************************************************************
 
 		}catch (SAXParseException err) {
@@ -87,11 +87,11 @@ public class BuildModelXml {
 	public List<Entity> getEntities()throws SAXParseException,SAXException,Throwable {
 		String entitiesNameSpace = "";
 		NodeList listOfEntity = doc.getElementsByTagName("entity");
-		List<Entity> entities = getEntities(listOfEntity,entitiesNameSpace);
+		List<Entity> entities = getEntities(listOfEntity);
 		return entities;
 	}
 	
-	public List<Entity> getEntities(NodeList listOfEntity,String packageDomainName)
+	public List<Entity> getEntities(NodeList listOfEntity)
 	throws SAXParseException,SAXException,Throwable {
 		List<Entity> entities = new ArrayList<Entity>();
 		int totalEntity = listOfEntity.getLength();
@@ -105,7 +105,7 @@ public class BuildModelXml {
 				//Atributos de la entidada
 				Element entityElement = (Element)entityNode;
 				Entity entity = setEntityValues(entityElement);
-				entity.setNamespace(packageDomainName);
+				entity.setNamespace(namespaceDomain);
 				//Se obtiene la lista de propiedades de la entidad
 				NodeList entityPropertyList = entityElement.getElementsByTagName("property");
 				properties = new ArrayList<Property>();
@@ -193,20 +193,20 @@ public class BuildModelXml {
 		return "";
 	}
 	
-	public String getNamespaceDomainName() {
-		return namespaceDomainName;
+	public String getNamespaceDomain() {
+		return namespaceDomain;
 	}
 
-	public String getNamespaceDaoName() {
-		return namespaceDaoName;
+	public String getNamespaceDao() {
+		return namespaceDao;
 	}
 
-	public String getNamespaceServiceName() {
-		return namespaceServiceName;
+	public String getNamespaceService() {
+		return namespaceService;
 	}
 
-	public String getNamespaceControllerName() {
-		return namespaceControllerName;
+	public String getNamespaceController() {
+		return namespaceController;
 	}
 
 	public String getXmlModelPath() {

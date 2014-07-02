@@ -165,7 +165,7 @@ public class CodeGenerator {
 			WriteSourceFile writeEjbDaoFile = new WriteSourceFile();
 			String ejbDaoDirectory = srcPath;
 			String ejbDaoFileName = entity.getName() + "";
-			String ejbDaoExtencion = ".java";
+			String ejbDaoExtencion = "Dao.java";
 			writeEjbDaoFile.writeFile(strEjbDao, ejbDaoDirectory, ejbDaoFileName, ejbDaoExtencion);
 		}
 	}
