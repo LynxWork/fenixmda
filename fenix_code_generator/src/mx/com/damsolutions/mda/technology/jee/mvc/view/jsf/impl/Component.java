@@ -20,8 +20,16 @@ public abstract class Component {
 	protected String enabled;
 	protected String value;
 	protected String assignTo;
+	protected String action;
 	
-	
+	public String getAction() {
+		return action;
+	}
+
+	public void setAction(String action) {
+		this.action = action;
+	}
+
 	public String getAssignTo() {
 		return assignTo;
 	}

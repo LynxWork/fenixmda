@@ -10,7 +10,7 @@ public class Poll extends Component {
 	    	this.entityProperty = entityProperty;
 	    }
 	@Override
-	public String build() {
+	public String toString() {
 		StringBuilder poll = new StringBuilder();
 		poll.append("<"+ NamingConvention.getJsfAjaxPrefix()+"poll "  );
 		poll.append(NamingConvention.getIdJsfImplPrefix()+"=\"" +"poll" + " \"");

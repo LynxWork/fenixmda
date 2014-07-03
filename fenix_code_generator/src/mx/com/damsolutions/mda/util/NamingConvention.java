@@ -156,10 +156,12 @@ public class NamingConvention {
 			}
 		}
 		return separateName.toString();
+		
 	}
 	
 	
 	public static String createRendered(){
+		
 		
 	return "";	
 	}
