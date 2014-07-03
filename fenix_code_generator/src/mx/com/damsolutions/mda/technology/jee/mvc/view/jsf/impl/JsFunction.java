@@ -9,6 +9,7 @@ public class JsFunction extends Component {
 		Function.append("<"+NamingConvention.getJsfAjaxPrefix()+"jsFunction ");
 		Function.append("name=\""+ getName()+ " \"");
 		Function.append("render=\""+ getRender()+ " \"");
+		Function.append(" " + buildStyleClass() +" ");
 		Function.append("/>");
 		return Function.toString();
 	}

@@ -3,16 +3,17 @@ package mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl;
 import mx.com.damsolutions.mda.util.NamingConvention;
 
 public class CommandButton extends Component {
+	
 	public String build() {
 		//propiedad=\"" + string + "\" "
-		StringBuilder ajax = new StringBuilder();
-		ajax.append("<"+NamingConvention.getJsfAjaxPrefix()+"CommandButton ");
-		ajax.append("event=\""+ getEvent()+ " \"");
-		ajax.append("render=\""+ getRender()+ " \"");
-		ajax.append("execute=\""+ getExecute()+" \"");
-		ajax.append(" " + buildStyleClass() +" ");
-		ajax.append("/>");
-		return ajax.toString();
+		StringBuilder button = new StringBuilder();
+		button.append("<"+NamingConvention.getJsfAjaxPrefix()+"CommandButton ");
+		button.append("event=\""+ getEvent()+ " \"");
+		button.append("render=\""+ getRender()+ " \"");
+		button.append("execute=\""+ getExecute()+" \"");
+		button.append(" " + buildStyleClass() +" ");
+		button.append("/>");
+		return button.toString();
 	}
 
 }

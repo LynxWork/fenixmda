@@ -117,8 +117,8 @@
 		        required="true"
 		        finding="false"
 		        visible="false"/>
-		    <relation entity='Rol' type='OneToMany'/>
-		    <relation entity='UserStatus' type='OneToOne'/>
+		    <association entity='Rol' type='OneToMany'/>
+		    <association entity='UserStatus' type='OneToOne'/>
 		</entity>
 		<entity name='UserStatus' id="02" type="catalog">
 		    <property
@@ -486,7 +486,7 @@
 		        required="true"
 		        finding="false"
 		        visible="false"/>
-			<relation entity='UserId' type='OneToOne'/>
+			<association entity='UserId' type='OneToOne'/>
 		</entity>
 	</domain>
 </model>

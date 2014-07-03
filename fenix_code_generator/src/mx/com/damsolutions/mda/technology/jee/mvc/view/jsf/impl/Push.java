@@ -7,6 +7,7 @@ public class Push extends Component {
 	public String build() {
 		StringBuilder push = new StringBuilder();
 		push.append("<"+NamingConvention.getJsfAjaxPrefix()+"push ");
+		push.append(NamingConvention.getIdJsfImplPrefix()+"=\"" +"push" + " \"");
 		push.append("id=\""+ getId()+ " \"");
 		push.append("address=\""+ getAddress()+ " \"");
 		push.append("/>");

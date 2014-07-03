@@ -18,7 +18,26 @@ public abstract class Component {
 	protected String address;
 	protected String interval;
 	protected String enabled;
+	protected String value;
+	protected String assignTo;
 	
+	
+	public String getAssignTo() {
+		return assignTo;
+	}
+
+	public void setAssignTo(String assignTo) {
+		this.assignTo = assignTo;
+	}
+
+	public String getValue() {
+		return value;
+	}
+
+	public void setValue(String value) {
+		this.value = value;
+	}
+
 	public String getInterval() {
 		return interval;
 	}

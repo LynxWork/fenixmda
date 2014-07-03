@@ -9,7 +9,7 @@ public class NamingConvention {
 	private static final String SUBFIX_PROPERTY_ID = "Id";
 
 	/**
-	 * Funcion que devuelve el nombre de la entidad a ser geb¡nerada
+	 * Funcion que devuelve el nombre de la entidad a ser generada
 	 * **/
 	public static String getEntityName(String entityName) {
 		String resVal;
@@ -157,6 +157,13 @@ public class NamingConvention {
 		}
 		return separateName.toString();
 	}
+	
+	
+	public static String createRendered(){
+		
+	return "";	
+	}
+	
 
 	/***************************************************************************************************
 	 * Convenciones de nombrado para el manejo de JSF
@@ -203,5 +210,22 @@ public class NamingConvention {
 	public static String getJsfImplPrefix() {
 		return "rich:";
 	}
+	
+	
+	
+	public static String getIdJsfImplPrefix(){
+		return "id";
+	}
 
+	public static String getNameJsfImplPrefix(){
+		return "name";
+	}
+	
+	public static String getValueJsfImplPrefix(){
+		return "value";
+	}
+	
+	public static String getTypeJsfImplPrefix(){
+		return "type";
+	}
 }

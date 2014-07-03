@@ -9,7 +9,7 @@ public class A4jAjax extends Component{
 		ajax.append("<"+NamingConvention.getJsfAjaxPrefix()+"ajax ");
 		ajax.append("event=\""+ getEvent()+ " \"");
 		ajax.append("render=\""+ getRender()+ " \"");
-		ajax.append("execute=\""+ getExecute()+" \"");
+		ajax.append(" " + buildStyleClass() +" ");
 		ajax.append("/>");
 		return ajax.toString();
 	}
