@@ -21,7 +21,8 @@
 		        sortable="true"
 		        required="true"
 		        finding="true"
-		        visible="true"/>
+		        visible="true"
+		        rule="${if(Rule.name!=null)?visible}"/>
 		    <property 
 		        id="SctyUsrPwd"
 		        name="password" 

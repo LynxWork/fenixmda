@@ -141,7 +141,7 @@ public class CodeGenerator {
 		//Se crean las clases de entidad*****************************************************************
 		for(Entity entity: entities){
 			EjbEntity ejb = new EjbEntity(entity);
-			String strEjb = ejb.toString();
+			String strEjb = ejb.build();
 			WriteSourceFile writeEjbFile = new WriteSourceFile();
 			String ejbDirectory = srcPath;
 			String ejbFileName = entity.getName() + "";
