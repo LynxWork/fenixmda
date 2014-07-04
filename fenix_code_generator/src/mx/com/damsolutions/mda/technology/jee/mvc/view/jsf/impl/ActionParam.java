@@ -14,11 +14,15 @@ public class ActionParam extends Component {
 		StringBuilder param = new StringBuilder();
 		param.append("<"+NamingConvention.getJsfAjaxPrefix()+"ActionParam ");
 		param.append(NamingConvention.getIdJsfImplPrefix()+"=\"" +"username" + " \"");
-		param.append(NamingConvention.getNameJsfImplPrefix()+"=\"" + "Alex" +  " \"" );
+		param.append("actionListener=\""+ getActionListener()+ " \"");
 		param.append("assignTo=\"#{"+ NamingConvention.getClassControllerName( getEntityName() ) +"."+ getEntityProperty()+"}" + "\" ");
+		param.append("binding=\""+ getBinding()+ " \"");
+		param.append("converter=\""+ getConverter()+ " \"");
+		param.append(NamingConvention.getNameJsfImplPrefix()+"=\"" + "Alex" +  " \"" );
+		param.append("noEscape=\""+ getNoEscape()+ " \"");
+		param.append("value=\""+ getValue()+ " \"");
 		param.append(" " + buildStyleClass() +" ");
 		param.append("/>");
 		return param.toString();
 	}
-
 }

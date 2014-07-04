@@ -1,5 +1,7 @@
 package mx.com.damsolutions.mda.junit.view;
 
+
+
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.A4jAjax;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.ActionListener;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.ActionParam;
@@ -29,10 +31,6 @@ public class RichFacesComponentsTest {
 		AjaxListener ajaxListener = new AjaxListener();
 		System.out.println("texto: " + ajaxListener.build());
 		
-		ActionParam actionParam  = new ActionParam("Usuario","nombre");
-		System.out.println("texto: " + actionParam.toString());
-		
-		
 		Column column = new Column();
 		System.out.println("texto: " + column.build());
 		
@@ -60,19 +58,6 @@ public class RichFacesComponentsTest {
 		ActionListener listener = new ActionListener("Usuario","nombre");
 		System.out.println("texto: " + listener.build());
 		
-		CommandLink link = new CommandLink();
-		link.setEvent("keyup");
-		link.setRender("out");
-		link.setExecute("@form");
-		System.out.println("texto: " + link.build());
-		
-		CommandButton button = new CommandButton();
-		button.setEvent("keyup");
-		button.setRender("out");
-		button.setExecute("@form");
-		System.out.println("texto: " + button.build());
-		
-		
 		A4jAjax ajax = new A4jAjax();
 		ajax.setEvent("keyup");
 		ajax.setRender("out");
@@ -82,6 +67,109 @@ public class RichFacesComponentsTest {
 		field.setDescription("Descripcion del componente");
 		field.setLabel("Ingrese su nombre");
 		System.out.println("texto: " + field.build());
+		
+		CommandButton button = new CommandButton();
+	    button.setAccesskey("accesskey");
+	    button.setAction("action");
+	    button.setActionListener("actionListener");
+	    button.setAjaxSingle("ajaxSingle");
+	    button.setAjaxSingle("ajaxSingle");
+	    button.setAlt("alt");
+	    button.setBinding("binding");
+	    button.setBypassUpdates("bypassUpdates");
+	    button.setData("data");
+	    button.setDir("dir");
+	    button.setDisabled("disabled");
+	    button.setEventsQueue("eventsQueue");
+	    button.setFocus("focus");
+	    button.setIgnoreDupResponses("ignoreDupResponses");
+	    button.setImage("image");
+	    button.setImmediate("immediate");
+	    button.setLang("lang");
+	    button.setLimitToList("limitToList");
+	    button.setOnbeforedomupdate("onbeforedomupdate");
+	    button.setOnblur("onblur");
+	    button.setOnchange("onchange");
+	    button.setOnclick("onclick");
+        button.setOncomplete("oncomplete");
+        button.setOndblclick("ondblclick");
+        button.setOnfocus("onfocus");
+        button.setOnkeydown("onkeydown");
+        button.setOnkeypress("onkeypress");
+        button.setOnkeyup("onkeyup");
+        button.setOnmousedown("onmousedown");
+        button.setOnmousemove("onmousemove");
+        button.setOnmouseout("onmouseout");
+        button.setOnmouseover("onmouseover");
+        button.setOnmouseup("onmouseup");
+        button.setProcess("process");
+        button.setReRender("reRender");
+        button.setRender("render");
+        button.setRendered("rendered");
+        button.setRequestDelay("requestDelay");
+        button.setSimilarityGroupingId("similarityGroupingId");
+        button.setSize("size");
+        button.setStatus("status");
+        button.setStyle("style");
+        button.setStyleClass("styleClass");
+        button.setTabindex("tabindex");
+        button.setTimeout("timeout");
+        button.setTitle("title");
+        button.setType("type");
+        System.out.println("texto: " + button.build());
+		
+		
+        ActionParam actionParam  = new ActionParam("Usuario","nombre");
+		actionParam.setActionListener("actionListener");
+		actionParam.setBinding("binding");
+		actionParam.setConverter("converter");
+		actionParam.setNoEscape("noEscape");
+		actionParam.setValue("value");
+		System.out.println("texto: " + actionParam.build());
+		
+		CommandLink link = new CommandLink("Usuario","nombre");
+		link.setAction("keyup");
+		link.setActionListener("out");
+		link.setBinding("@form");
+		link.setBypassUpdates("keyup");
+		link.setCharset("out");
+		link.setCoords("@form");
+		link.setData("keyup");
+		link.setDisabled("out");
+		link.setExecute("@form");
+		link.setHreflang("keyup");
+		link.setImmediate ("out");
+		link.setLimitToList("limitToList");
+		link.setLimitRender("@form");
+		link.setOnbeforedomupdate("onbeforedomupdate");
+		link.setOnbegin("onbegin");
+		link.setOnclick("onclick");
+		link.setOncomplete("oncomplete");
+		link.setOndblclick("ondblclick");
+		link.setOaccesskey("oaccesskey");
+		link.setOnkeydown("onkeydown");
+		link.setOnkeypress("onkeypress");
+		link.setOnkeyup("onkeyup");
+		link.setOnmousedown("onmousedown");
+		link.setOnmousemove("onmousemove");
+		link.setOnmousemove("onmousemove");
+		link.setOnmouseout("onmouseout");
+		link.setOnmouseover("onmouseover");
+		link.setOnmousedown("onmousedown");
+		link.setOnmouseup("onmouseup");
+		link.setRel("rel");
+		link.setRender("render");
+		link.setRendered("rendered");
+		link.setRev("rev");
+		link.setShape("shape");
+		link.setStatus("status");
+		link.setStyle("style");
+		link.setStyleClass("styleClass");
+		link.setTitle("title");
+		link.setType("type");
+		link.setValue("value");
+		System.out.println("texto: " + link.build());
+		
 	}
 		
 }
