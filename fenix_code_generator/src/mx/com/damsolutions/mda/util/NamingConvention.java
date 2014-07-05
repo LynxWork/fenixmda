@@ -217,19 +217,4 @@ public class NamingConvention {
 	
 	
 	
-	public static String getIdJsfImplPrefix(){
-		return "id";
-	}
-
-	public static String getNameJsfImplPrefix(){
-		return "name";
-	}
-	
-	public static String getValueJsfImplPrefix(){
-		return "value";
-	}
-	
-	public static String getTypeJsfImplPrefix(){
-		return "type";
-	}
 }

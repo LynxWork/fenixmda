@@ -695,6 +695,30 @@ public abstract class Component {
 		return resVal.toString();
 	}
 
+	public String buildOnclick(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append(" onclick=\""+ getOnclick()+ "\"");
+		return sb.toString();
+	}
 	
+
+	
+	public String buildId(){
+		return " id=\"" + this.buildStringId() + "\"";
+	}
+	
+	public String buildStringId(){
+		return getEntityName()+getId();
+	}
+	
+	public String buildName(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append( " name=\"" + buildStringName() + "\"" );
+		return sb.toString();
+	}
+	
+	public String buildStringName(){
+		return getEntityName()+getName();
+	}
 	
 }

@@ -1,5 +1,6 @@
 package mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.cmp;
 
+import mx.com.damsolutions.mda.metamodel.Property;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.InplaceInput;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.Message;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.OutputTextField;
@@ -7,10 +8,22 @@ import mx.com.damsolutions.mda.util.NamingConvention;
 
 public class InputTextFieldCmp extends InplaceInput{
 
-	public InputTextFieldCmp(String id, String name, String entityName,
-			String entityProperty) {
+	public InputTextFieldCmp(String entityName, Property property) {
+		super(property.getId(), property.getName(), entityName, property.getName());
+		this.setId( property.getId() );
+		this.setEntityName( entityName );
+		this.setEntityProperty( property.getName() );
+		this.setLabel(property.getTitle());
+		this.setDescription(property.getDescription());
+		this.setDefaultLabel(property.getTitle());
+		this.setMinimum(property.getMinimum().toString());
+		this.setMaximum(property.getMaximum().toString());
+		this.setPattern(property.getRegularExpression().getConfiguration());
+		this.setRequired(Boolean.toString(property.isRequired()));
+	}
+	
+	public InputTextFieldCmp(String id, String name, String entityName,String entityProperty) {
 		super(id, name, entityName, entityProperty);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

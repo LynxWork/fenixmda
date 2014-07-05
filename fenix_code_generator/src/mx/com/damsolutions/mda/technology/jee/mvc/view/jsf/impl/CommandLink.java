@@ -13,7 +13,7 @@ public class CommandLink extends Component {
 	public String build() {
 		StringBuilder link = new StringBuilder();
 		link.append("<"+NamingConvention.getJsfAjaxPrefix()+"commandLink ");
-		link.append(NamingConvention.getIdJsfImplPrefix()+"=\"" +"CommandLink" + " \"");
+		link.append( buildId() );
 		link.append("action=\""+ getAction()+ " \"");
 		link.append("actionListener=\""+ getActionListener()+ " \"");
 		link.append("binding=\""+ getBinding()+ " \"");
@@ -31,7 +31,7 @@ public class CommandLink extends Component {
 		link.append("onbeforedomupdate=\""+ getOnbeforedomupdate()+ " \"");
 		link.append("onbegin=\""+ getOnbegin()+ " \"");
 		link.append("onbegin=\""+ getOnbegin()+ " \"");
-		link.append("onclick=\""+ getOnclick()+ " \"");
+		link.append( buildOnclick() );
 		link.append("oncomplete=\""+ getOncomplete()+ " \"");
 		link.append("ondblclick=\""+ getOndblclick()+ " \"");
 		link.append("oaccesskey=\""+ getOaccesskey()+ " \"");
@@ -59,4 +59,15 @@ public class CommandLink extends Component {
 		return link.toString();
 	}
 
+	
+	@Override
+	public String buildStringId(){
+		return getEntityName()+getId()+"CmdLnk";
+	}
+	
+	@Override
+	public String buildStringName(){
+		return getEntityName()+getName()+"CmdLnk";
+	}
+	
 }

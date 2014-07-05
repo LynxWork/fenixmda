@@ -77,7 +77,7 @@ public class RichFacesComponentsTest {
 		System.out.println("texto: " + function.build());
 		
 		
-		CommandButton button = new CommandButton();
+		CommandButton button = new CommandButton(null, null);
 	    button.setAccesskey("accesskey");
 	    button.setAction("action");
 	    button.setActionListener("actionListener");

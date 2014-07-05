@@ -24,6 +24,8 @@ public class CodeGeneratorTest {
 		CodeGenerator codeGenerator = new CodeGenerator();
 		//codeGenerator.createViewModel();
 
+		
+		
 	}
 	
 }

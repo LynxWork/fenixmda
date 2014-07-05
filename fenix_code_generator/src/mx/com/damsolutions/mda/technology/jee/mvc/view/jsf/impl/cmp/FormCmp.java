@@ -57,21 +57,10 @@ public class FormCmp extends Component{
 		//Implementation
 		sb.append("<composite:implementation>");
 		sb.append("<h:panelGrid columns=\""+DEFAULT_COLUMNS+"\" columnClasses=\"titleCell\">");
-		
-		InputTextFieldCmp inputText = new InputTextFieldCmp(binding, binding, binding, binding);
 
 		for(Property p:entity.getProperties()){
-			inputText.setId( p.getId() );
-			inputText.setEntityName("cc.attrs."+entity.getName());//Asign dinamic Bean Name
-			inputText.setEntityProperty(p.getName());
-			inputText.setLabel(p.getTitle());
-			inputText.setDescription(p.getDescription());
-			inputText.setDefaultLabel(p.getTitle());
-			inputText.setMinimum(p.getMinimum().toString());
-			inputText.setMaximum(p.getMaximum().toString());
-			inputText.setPattern(p.getRegularExpression().getConfiguration());
-			inputText.setRequired(Boolean.toString(p.isRequired()));
-			inputText.setStyleClass(styleClass);		
+			InputTextFieldCmp inputText = new InputTextFieldCmp(entity.getName(),p);
+			inputText.setStyleClass(styleClass);
 			sb.append(inputText.build());
 		}
 

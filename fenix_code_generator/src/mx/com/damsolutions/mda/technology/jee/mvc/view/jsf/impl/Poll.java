@@ -1,6 +1,7 @@
 package mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl;
 
 import mx.com.damsolutions.mda.util.NamingConvention;
+import mx.com.damsolutions.util.StringUtil;
 
 public class Poll extends Component {
 	
@@ -13,7 +14,8 @@ public class Poll extends Component {
 	public String toString() {
 		StringBuilder poll = new StringBuilder();
 		poll.append("<"+ NamingConvention.getJsfAjaxPrefix()+"poll "  );
-		poll.append(NamingConvention.getIdJsfImplPrefix()+"=\"" +"poll" + " \"");
+		if( !StringUtil.isNull( getId() ) ){ poll.append( buildId() ); }
+		if( !StringUtil.isNull( buildName() ) ){ poll.append( buildName() );}
 		poll.append("interval=\"" + getInterval()+ " \"");
 		poll.append("enabled=\"#{"+ NamingConvention.getClassControllerName( getEntityName() ) +"."+ getEntityProperty()+"}" + "\" ");
 		poll.append("render=\" "+ getRender()+ " \"");

@@ -57,12 +57,13 @@ public class InplaceInput extends InputTextField {
 		return resVal.toString();
 	}
 
+	
 	public String buildId(){
-		return "id=\"" + buildNameId() + "\" ";
+		return "id=\"" + this.buildNameId() + "\" ";
 	}
 	
 	public String buildNameId(){
-		return getId()+getEntityProperty()+"InTxt";
+		return getEntityName()+getEntityProperty()+"InTxt";
 	}
 	
 

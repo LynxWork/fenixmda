@@ -1,6 +1,7 @@
 package mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl;
 
 import mx.com.damsolutions.mda.util.NamingConvention;
+import mx.com.damsolutions.util.StringUtil;
 
 public class JsFunction extends Component {
 	public JsFunction(String entityName, String entityProperty){
@@ -12,8 +13,8 @@ public class JsFunction extends Component {
 	public String build() {
 		StringBuilder function = new StringBuilder();
 		function.append("<"+NamingConvention.getJsfAjaxPrefix()+"jsFunction ");
-		function.append(NamingConvention.getIdJsfImplPrefix()+"=\"" +"jsFunction" + " \"");
-		function.append("name=\""+ getName()+ " \"");
+		if( !StringUtil.isNull( getId() ) ){ function.append( buildId() ); }
+		if( !StringUtil.isNull( buildName() ) ){ function.append( buildName() );}
 		function.append("action=\"#{" + NamingConvention.getClassControllerName( getEntityName() ) +"."+ getEntityProperty() +"\"} ");
 		function.append("actionListener=\"#{" + NamingConvention.getClassControllerName( getEntityName() ) +"."+ getEntityProperty() +"\"} ");
 		function.append("ajaxSingle=\""+ getAjaxSingle()+ " \"");
