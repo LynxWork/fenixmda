@@ -166,6 +166,8 @@ public class NamingConvention {
 	return "";	
 	}
 	
+	
+	
 
 	/***************************************************************************************************
 	 * Convenciones de nombrado para el manejo de JSF

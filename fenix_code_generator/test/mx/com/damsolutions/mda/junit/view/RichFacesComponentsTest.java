@@ -50,10 +50,6 @@ public class RichFacesComponentsTest {
 		System.out.println("texto: " + push.build());
 		
 		
-		JsFunction function = new JsFunction();
-		function.setName("updateName");
-		function.setRender("showname");
-		System.out.println("texto: " + function.build());
 		
 		ActionListener listener = new ActionListener("Usuario","nombre");
 		System.out.println("texto: " + listener.build());
@@ -68,25 +64,37 @@ public class RichFacesComponentsTest {
 		field.setLabel("Ingrese su nombre");
 		System.out.println("texto: " + field.build());
 		
+		JsFunction function = new JsFunction("Usuario","nombre");
+		function.setName("updateName");
+		function.setAjaxSingle(Boolean.FALSE);
+		function.setBypassUpdates(Boolean.TRUE);
+		function.setEventsQueue("eventsQueue");
+		function.setIgnoreDupResponses(Boolean.TRUE);
+		function.setImmediate(Boolean.TRUE);
+		function.setLimitToList(Boolean.TRUE);
+		function.setOnbeforedomupdate("onbeforedomupdate");
+		
+		System.out.println("texto: " + function.build());
+		
+		
 		CommandButton button = new CommandButton();
 	    button.setAccesskey("accesskey");
 	    button.setAction("action");
 	    button.setActionListener("actionListener");
-	    button.setAjaxSingle("ajaxSingle");
-	    button.setAjaxSingle("ajaxSingle");
+	    button.setAjaxSingle(Boolean.FALSE);
 	    button.setAlt("alt");
 	    button.setBinding("binding");
-	    button.setBypassUpdates("bypassUpdates");
+	    button.setBypassUpdates(Boolean.TRUE);
 	    button.setData("data");
 	    button.setDir("dir");
 	    button.setDisabled("disabled");
 	    button.setEventsQueue("eventsQueue");
 	    button.setFocus("focus");
-	    button.setIgnoreDupResponses("ignoreDupResponses");
+	    button.setIgnoreDupResponses(Boolean.TRUE);
 	    button.setImage("image");
-	    button.setImmediate("immediate");
+	    button.setImmediate(Boolean.TRUE);
 	    button.setLang("lang");
-	    button.setLimitToList("limitToList");
+	    button.setLimitToList(Boolean.TRUE);
 	    button.setOnbeforedomupdate("onbeforedomupdate");
 	    button.setOnblur("onblur");
 	    button.setOnchange("onchange");
@@ -131,15 +139,15 @@ public class RichFacesComponentsTest {
 		link.setAction("keyup");
 		link.setActionListener("out");
 		link.setBinding("@form");
-		link.setBypassUpdates("keyup");
+		link.setBypassUpdates(Boolean.TRUE);
 		link.setCharset("out");
 		link.setCoords("@form");
 		link.setData("keyup");
 		link.setDisabled("out");
 		link.setExecute("@form");
 		link.setHreflang("keyup");
-		link.setImmediate ("out");
-		link.setLimitToList("limitToList");
+		link.setImmediate (Boolean.TRUE);
+		link.setLimitToList(Boolean.TRUE);
 		link.setLimitRender("@form");
 		link.setOnbeforedomupdate("onbeforedomupdate");
 		link.setOnbegin("onbegin");
@@ -169,6 +177,9 @@ public class RichFacesComponentsTest {
 		link.setType("type");
 		link.setValue("value");
 		System.out.println("texto: " + link.build());
+		
+		
+		
 		
 	}
 		

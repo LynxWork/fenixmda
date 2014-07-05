@@ -17,9 +17,9 @@ public abstract class Component {
 	protected String actionparam;
 	protected String accesskey;
 	protected String actionListener;
-	protected String ajaxSingle;
+	protected Boolean ajaxSingle;
 	protected String ajaxListener;
-	protected String bypassUpdates;
+	protected Boolean bypassUpdates;
 	protected String binding;
 	protected String charset;
 	protected String commandButton;
@@ -42,14 +42,14 @@ public abstract class Component {
 	protected String htmlCommandLink;
 	protected String hreflang;
 	protected String id;
-	protected String ignoreDupResponses;
-	protected String immediate;
+	protected Boolean ignoreDupResponses;
+	protected Boolean immediate;
 	protected String image;
 	protected String include;
 	protected String interval;
 	protected String lang;
 	protected String limitRender;
-	protected String limitToList;
+	protected Boolean limitToList;
 	protected String mediaOutput;
 	protected String name;
 	protected String noEscape;
@@ -220,19 +220,19 @@ public abstract class Component {
 		this.hreflang = hreflang;
 	}
 
-	public String getIgnoreDupResponses() {
+	public Boolean getIgnoreDupResponses() {
 		return ignoreDupResponses;
 	}
 
-	public void setIgnoreDupResponses(String ignoreDupResponses) {
+	public void setIgnoreDupResponses(Boolean ignoreDupResponses) {
 		this.ignoreDupResponses = ignoreDupResponses;
 	}
 
-	public String getImmediate() {
+	public Boolean getImmediate() {
 		return immediate;
 	}
 
-	public void setImmediate(String immediate) {
+	public void setImmediate(Boolean immediate) {
 		this.immediate = immediate;
 	}
 
@@ -244,11 +244,11 @@ public abstract class Component {
 		this.lang = lang;
 	}
 
-	public String getLimitToList() {
+	public Boolean getLimitToList() {
 		return limitToList;
 	}
 
-	public void setLimitToList(String limitToList) {
+	public void setLimitToList(Boolean limitToList) {
 		this.limitToList = limitToList;
 	}
 
@@ -484,19 +484,19 @@ public abstract class Component {
 		this.coords = coords;
 	}
 
-	public String getBypassUpdates() {
+	public Boolean getBypassUpdates() {
 		return bypassUpdates;
 	}
 
-	public void setBypassUpdates(String bypassUpdates) {
+	public void setBypassUpdates(Boolean bypassUpdates) {
 		this.bypassUpdates = bypassUpdates;
 	}
 
-	public String getAjaxSingle() {
+	public Boolean getAjaxSingle() {
 		return ajaxSingle;
 	}
 
-	public void setAjaxSingle(String ajaxSingle) {
+	public void setAjaxSingle(Boolean ajaxSingle) {
 		this.ajaxSingle = ajaxSingle;
 	}
 
