@@ -44,7 +44,7 @@
 		        visible="true"/>
 		    <property 
 		        id="SctyLstUsrCrte"
-		        name="lastUserUpdate" 
+		        name="lastUserCreate" 
 		        title="dam.erp.security.domain.user.password.title"
 		        label="dam.erp.security.user.password.label"
 		        instruction="dam.erp.security.user.password.instruction"
@@ -162,7 +162,7 @@
 		        visible="true"/>
 		    <property 
 		        id="SctyLstUsrCrte"
-		        name="lastUserUpdate" 
+		        name="lastUserCreate" 
 		        title="dam.erp.security.domain.user.password.title"
 		        label="dam.erp.security.user.password.label"
 		        instruction="dam.erp.security.user.password.instruction"
@@ -193,25 +193,6 @@
 		        minimum="1"
 		        maximum="10"
 		        order="4"
-		        nillable="false"
-		        sortable="false"
-		        required="true"
-		        finding="false"
-		        visible="false"/>
-		    <property 
-		        id="SctyLstUsrUpdt"
-		        name="lastUserUpdate" 
-		        title="dam.erp.security.domain.user.password.title"
-		        label="dam.erp.security.user.password.label"
-		        instruction="dam.erp.security.user.password.instruction"
-		        description="dam.erp.security.user.password.description"
-		        type="number"
-		        pattern="^([0-9]+)" 
-		        length="10"
-		        width="10"
-		        minimum="1"
-		        maximum="10"
-		        order="3"
 		        nillable="false"
 		        sortable="false"
 		        required="true"
@@ -278,7 +259,7 @@
 		        visible="true"/>
 		    <property 
 		        id="SctyLstUsrCrte"
-		        name="lastUserUpdate" 
+		        name="lastUserCreate" 
 		        title="dam.erp.security.domain.user.password.title"
 		        label="dam.erp.security.user.password.label"
 		        instruction="dam.erp.security.user.password.instruction"
@@ -413,7 +394,7 @@
 		        visible="false"/>
 		    <property 
 		        id="SctyLstUsrCrte"
-		        name="lastUserUpdate" 
+		        name="lastUserCreate" 
 		        title="dam.erp.security.domain.user.password.title"
 		        label="dam.erp.security.user.password.label"
 		        instruction="dam.erp.security.user.password.instruction"

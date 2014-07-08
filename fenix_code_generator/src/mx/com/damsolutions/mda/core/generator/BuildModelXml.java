@@ -13,6 +13,7 @@ import javax.xml.parsers.DocumentBuilder;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException; 
 
+import mx.com.damsolutions.mda.metamodel.Association;
 import mx.com.damsolutions.mda.metamodel.DataTypeFactory;
 import mx.com.damsolutions.mda.metamodel.Entity;
 import mx.com.damsolutions.mda.metamodel.Property;
@@ -58,8 +59,8 @@ public class BuildModelXml {
 			String moduleName = entityDomain.getAttribute("name");
 			
 			//Se arman los paquetes*****************************************************
-			String baseNamespace = "com.lynxwork.app.rh.";
-			this.namespaceDomain = baseNamespace+modelName+"."+moduleName+".domain";
+			String baseNamespace = "com.lynxwork.app.rh";
+			this.namespaceDomain = baseNamespace+"."+moduleName+".domain";
 			this.namespaceDao = baseNamespace+modelName+"."+moduleName+".dao";
 			this.namespaceService = baseNamespace+modelName+"."+moduleName+".service";
 			this.namespaceController = baseNamespace+modelName+"."+moduleName+".controller";
@@ -85,10 +86,15 @@ public class BuildModelXml {
 
 	
 	public List<Entity> getEntities()throws SAXParseException,SAXException,Throwable {
-		String entitiesNameSpace = "";
 		NodeList listOfEntity = doc.getElementsByTagName("entity");
 		List<Entity> entities = getEntities(listOfEntity);
 		return entities;
+	}
+	
+	public Entity getEntity(NodeList listOfEntity){
+		Entity entity = new Entity();
+		
+		return entity;
 	}
 	
 	public List<Entity> getEntities(NodeList listOfEntity)
@@ -97,7 +103,7 @@ public class BuildModelXml {
 		int totalEntity = listOfEntity.getLength();
 		log.debug("Total no of entity: " + totalEntity);
 		ArrayList<Property> properties = null;
-		ArrayList<Property> association = null;
+		List<Association> associations = null;
 		//Se procesa la lista de entidades
 		for(int s=0; s<listOfEntity.getLength() ; s++){
 			Node entityNode = listOfEntity.item(s);
@@ -119,11 +125,21 @@ public class BuildModelXml {
 				}
 				//Se agregan las propiedades a la entidad
 				entity.setProperties(properties);
-				entities.add(entity);
 				//Add the association of the entity
-				NodeList entityAssociationList = entityElement.getElementsByTagName("association");
-				association = new ArrayList<Property>();
+				associations = getAssociations( entityElement );
+				//add the source element for eich association
+				for(Association association: associations){
+					association.setSourceElement(entity);
+				}
+				entity.setAssociation(associations);
+				entities.add(entity);
 			}
+			
+		}
+		
+		//Set the target element for association of eich element
+		for(Entity entity: entities){
+			
 		}
 		return entities;
 	}
@@ -140,6 +156,44 @@ public class BuildModelXml {
 		return entity;
 	}
 
+	public List<Association> getAssociations(Element entityElement){
+		NodeList entityAssociationList = entityElement.getElementsByTagName("association");
+		List<Association> associations = new ArrayList<Association>();
+		for(int i=0; i<entityAssociationList.getLength() ; i++){
+			//Valores de la propiedad
+			Element associationElement = (Element)entityAssociationList.item(i);
+			//Se crea el objeto propiedad Property
+			Association association = setAssociationValues(associationElement);
+			log.debug("------->");
+			associations.add(association);
+		}
+		return associations;
+	}
+	
+	public Association setAssociationValues(Element associationElement){
+		Association association = new Association();
+		String type = associationElement.getAttribute("type");
+		String entity = associationElement.getAttribute("entity");
+		log.debug("sortable: " + type );
+		//Se crea el objeto propiedad Property**************************************************
+		association.setRelationType( type );
+		if( type.equals("OneToMany") ){
+			association.setSourceCardinality("1");
+			association.setTargetCardinality("*");			
+		}else if( type.equals("OneToOne") ){
+			association.setSourceCardinality("1");
+			association.setTargetCardinality("1");				
+		}else if( type.equals("ManyToMany") ){
+			association.setSourceCardinality("*");
+			association.setTargetCardinality("*");				
+		}else if( type.equals("ManyToOne") ){
+			association.setSourceCardinality("*");
+			association.setTargetCardinality("1");				
+		}
+
+		//association.setRelationTarget(relationTarget); ( associationElement.getAttribute("entity") );
+		return association;
+	}
 	
 	public Property setPropertyValues(Entity entity, Element propertyElement){
 		log.debug("Node: " + propertyElement.getNodeName());

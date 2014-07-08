@@ -6,9 +6,6 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
-
-import mx.com.damsolutions.code.generator.java.project.web.JSFCodeGenerator;
-import mx.com.damsolutions.mda.junit.generator.DummyServiceData;
 import mx.com.damsolutions.mda.metamodel.Entity;
 import mx.com.damsolutions.mda.technology.jee.mvc.dao.impl.EjbDao;
 import mx.com.damsolutions.mda.technology.jee.mvc.model.impl.EjbEntity;
@@ -43,8 +40,9 @@ public class CodeGenerator {
 	public void buildApplication() throws SAXParseException, SAXException, Throwable{
 		
 		//The base directory for make project files
+		String moduleName="user";
 		String baseDirectory = "C:/JAVT/proyectos/LynxWorkTechnologies/FENIX_MDA/fenixmda/trunk/fenix_generated_project/src";
-		String baseDirectoryClasses = baseDirectory+"/com/lynxwork/app/rh";
+		String baseDirectoryClasses = baseDirectory+"/com/lynxwork/app/rh/"+moduleName;
 		String baseDirectoryViewModel = baseDirectory+"/main/webapp/view/";
 		String baseDirectoryServiceModel = baseDirectoryClasses +"/service/";
 		String baseDirectoryIntegrationServiceModel = baseDirectoryClasses +"/integration/";
