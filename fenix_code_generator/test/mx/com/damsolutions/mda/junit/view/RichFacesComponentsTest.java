@@ -91,8 +91,6 @@ public class RichFacesComponentsTest {
 	    button.setDir("dir");
 	    button.setDisabled(Boolean.TRUE);
 	    button.setEventsQueue("eventsQueue");
-	    
-	    
 	    button.setFocus("focus");
 	    button.setIgnoreDupResponses(Boolean.TRUE);
 	    button.setImage("image");

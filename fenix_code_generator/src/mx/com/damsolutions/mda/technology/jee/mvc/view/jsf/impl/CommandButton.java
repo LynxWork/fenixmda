@@ -53,49 +53,112 @@ public class CommandButton extends Component {
 		if(!StringUtil.isNull(buildDisabled())){
 			button.append(buildDisabled());
 		}
-		
-		
-		/*
-		button.append("data=\""+ getData()+ " \"");
-		button.append("dir=\""+ getDir()+ " \"");
-		button.append("disabled=\""+ getDisabled()+ " \"");
-		button.append("eventsQueue=\""+ getEventsQueue()+ " \"");
-		button.append("focus=\""+ getFocus()+ " \"");
-		button.append("ignoreDupResponses=\""+ getIgnoreDupResponses()+ " \"");
-		button.append("image=\""+ getImage()+ " \"");
-		button.append("immediate=\""+ getImmediate()+ " \"");
-		button.append("lang=\""+ getLang()+ " \"");
-		button.append("limitToList=\""+ getLimitToList()+ " \"");
-		button.append("onbeforedomupdate=\""+ getOnbeforedomupdate()+ " \"");
-		button.append("onblur=\""+ getOnblur()+ " \"");
-		button.append("onchange=\""+ getOnchange()+ " \"");
-		button.append( buildOnclick() );
-		button.append("oncomplete=\""+ getOncomplete()+ " \"");
-		
-		button.append("onfocus=\""+ getOnfocus()+ " \"");
-		button.append("onkeydown=\""+ getOnkeydown()+ " \"");
-		button.append("onkeypress=\""+ getOnkeypress()+ " \"");
-		button.append("onkeyup=\""+ getOnkeyup()+ " \"");
-		button.append("onmousedown=\""+ getOnmousedown()+ " \"");
-		button.append("onmousemove=\""+ getOnmousemove()+ " \"");
-		button.append("onmouseout=\""+ getOnmouseout()+ " \"");
-		button.append("onmouseover=\""+ getOnmouseover()+ " \"");
-		button.append("onmouseup=\""+ getOnmouseup()+ " \"");
-		button.append("process=\""+ getProcess()+ " \"");
-		button.append("reRender=\""+ getReRender()+ " \"");
-		button.append("rendered=\""+ getRendered()+ " \"");
-		button.append("requestDelay=\""+ getRequestDelay()+ " \"");
-		button.append("similarityGroupingId=\""+ getSimilarityGroupingId()+ " \"");
-		button.append("size=\""+ getSize()+ " \"");
-		button.append("status=\""+ getStatus()+ " \"");
-		button.append("style=\""+ getStyle()+ " \"");
-		button.append("styleClass=\""+ getStyleClass()+ " \"");
-		button.append("tabindex=\""+ getTabindex()+ " \"");
-		button.append("title=\""+ getTitle()+ " \"");
-		button.append("type=\""+ getType()+ " \"");
-		button.append("value=\""+ getValue()+ " \"");
-		button.append(" " + buildStyleClass() +" ");
-		button.append("/>");*/
+		if(!StringUtil.isNull(buildEventsQueue())){
+			button.append(buildEventsQueue());
+		}
+		if(!StringUtil.isNull(buildFocus())){
+			button.append(buildFocus());
+		}
+		if(!StringUtil.isNull(buildIgnoreDupResponses())){
+			button.append(buildIgnoreDupResponses());
+		}
+		if(!StringUtil.isNull(buildImage())){
+			button.append(buildImage());
+		}
+		if(!StringUtil.isNull(buildImmediate())){
+			button.append(buildImmediate());
+		}
+		if(!StringUtil.isNull(buildLang())){
+			button.append(buildLang());
+		}
+		if(!StringUtil.isNull(buildLimitToList())){
+			button.append(buildLimitToList());
+		}
+		if(!StringUtil.isNull(buildOnbeforedomupdate())){
+			button.append(buildOnbeforedomupdate());
+		}
+		if(!StringUtil.isNull(onblur)){
+		    button.append(" onblur=\""+ getOnblur()+ " \"");
+		}
+		if(!StringUtil.isNull(onchange)){
+		    button.append(" onchange=\"" + " submit()"+" \"");
+		}
+		if(!StringUtil.isNull(buildOnclick())){
+			button.append(buildOnclick());
+		}
+		if(!StringUtil.isNull(buildOncomplete())){
+			button.append(buildOncomplete());
+		}
+		if(!StringUtil.isNull(buildOndblclick())){
+			button.append(buildOndblclick());
+		}
+		if(!StringUtil.isNull(onfocus)){
+			button.append(" onfocus=\""+ getOnfocus()+ " \"");
+		}
+		if(!StringUtil.isNull(buildOnkeydown())){
+			button.append(buildOnkeydown());
+		}
+		if(!StringUtil.isNull(buildOnkeypress())){
+			button.append(buildOnkeypress());
+		}
+		if(!StringUtil.isNull(buildOnkeyup())){
+			button.append(buildOnkeyup());
+		}
+		if(!StringUtil.isNull(buildOnmousedown())){
+			button.append(buildOnmousedown());
+		}
+		if(!StringUtil.isNull(buildOnmouseout())){
+			button.append(buildOnmouseout());
+		}
+		if(!StringUtil.isNull(buildOnmouseover())){
+			button.append(buildOnmouseover());
+		}
+		if(!StringUtil.isNull(buildOnmouseup())){
+			button.append(buildOnmouseup());
+		}
+		if(!StringUtil.isNull(buildProcess())){
+			button.append(buildProcess());
+		}
+		if(!StringUtil.isNull(buildReRender())){
+			button.append(buildReRender());
+		}
+		if(!StringUtil.isNull(buildRendered())){
+			button.append(buildRendered());
+		}
+		if(!StringUtil.isNull(buildRequestDelay())){
+			button.append(buildRequestDelay());
+		}
+		if(!StringUtil.isNull(buildSimilarityGroupingId())){
+			button.append(buildSimilarityGroupingId());
+		}
+		if(!StringUtil.isNull(size)){
+			button.append(" size=\""+ "3" + " \"");
+		}
+		if(!StringUtil.isNull(buildStatus())){
+			button.append(buildStatus());
+		}
+		if(!StringUtil.isNull(buildStyle())){
+			button.append(buildStyle());
+		}
+		if(!StringUtil.isNull(buildStyleClass())){
+			button.append(buildStyleClass());
+		}
+		if(!StringUtil.isNull(tabindex)){
+			button.append("tabindex=\""+" 3 "+ " \"");
+		}
+		if(!StringUtil.isNull(builTimeout())){
+			button.append(builTimeout());
+		}
+		if(!StringUtil.isNull(builTitle())){
+			button.append(builTitle());
+		}
+		if(!StringUtil.isNull(builType())){
+			button.append(builType());
+		}
+		if(!StringUtil.isNull(builValue())){
+			button.append(builValue());
+		}
+		button.append("/>");
 		return button.toString();
 	}
 

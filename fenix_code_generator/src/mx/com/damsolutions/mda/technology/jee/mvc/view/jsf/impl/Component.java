@@ -747,15 +747,157 @@ public abstract class Component {
 		sb.append(" disabled=\""+getDisabled()+"\" ");
 		return sb.toString();
 	}
-	
-	
-	public String buildOnclick(){
+	public String buildEventsQueue(){
 		StringBuilder sb = new StringBuilder("");
-		sb.append(" onclick=\""+ getOnclick()+ "\"");
+		sb.append(" eventsQueue=\""+getEventsQueue()+"\" ");
 		return sb.toString();
 	}
-	
-
+	public String buildFocus(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append("focus=\"#{"+ getFocus()+"}" + "\" ");
+		return sb.toString();
+	}
+	public String buildIgnoreDupResponses(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append("ignoreDupResponses=\""+ getIgnoreDupResponses()+ "\" ");
+		return sb.toString();
+	}
+	public String buildImage(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append("image=\""+"/"+ getImage()+"/"+"shell"+"/"+"spacer"+"."+"gif"+ "\" ");
+		
+		return sb.toString();
+	}
+	public String buildImmediate(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append(" immediate=\""+ getImmediate()+ "\"");
+		return sb.toString();
+	}
+	public String buildLang(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append(" lang=\""+ getLang()+ "\"");
+		return sb.toString();
+	}
+	public String buildLimitToList(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append(" limitToList=\"#{"+ getLimitToList()+"}" + "\" ");
+		return sb.toString();
+	}
+	public String buildOnbeforedomupdate(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append(" Onbeforedomupdate=\"#{"+ getOnbeforedomupdate()+"}" + "\" ");
+		return sb.toString();
+	}
+	public String buildOnclick(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append(" onclick=\"" + " setTheValue()"+" \"");
+		return sb.toString();
+	}
+	public String buildOncomplete(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append(" oncomplete=\"#{"+ NamingConvention.getClassControllerName( getEntityName() ) +"."+ getEntityProperty()+"}" + "\" ");
+		return sb.toString();
+	}
+	public String buildOndblclick(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append(" ondblclick\"#{"+ NamingConvention.getClassControllerName( getEntityName() ) +"."+ getEntityProperty()+"}" + "\" ");
+		return sb.toString();
+	}
+	public String buildOnkeydown(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append(" onkeydown=\""+"test()"+" \"");
+		return sb.toString();
+	}
+	public String buildOnkeypress(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append(" onkeypress=\""+"return"+"("+"event"+"."+"keycode"+")"+" \"");
+		return sb.toString();
+	}
+	public String buildOnkeyup(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append(" onkeyup=\"#{"+ NamingConvention.getClassControllerName( getEntityName() ) +"."+ getEntityProperty()+"}" + "\" ");
+		return sb.toString();
+	}
+	public String buildOnmousedown(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append(" onmousedown=\"" +NamingConvention.getClassControllerName( getEntityName() ) +"."+ getEntityProperty()+"();" + "\" ");
+		return sb.toString();
+	}
+	public String buildOnmouseout(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append(" onmouseout=\"" +NamingConvention.getClassControllerName( getEntityName() ) +"."+ getEntityProperty()+"()" + "\" ");
+		return sb.toString();
+	}
+	public String buildOnmouseover(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append(" onmouseover=\"#{"+ NamingConvention.getClassControllerName(getEntityProperty())+"}" + "\" ");
+		return sb.toString();
+	}
+	public String buildOnmouseup(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append(" onmouseup=\"#{"+ NamingConvention.getClassControllerName(getEntityProperty())+"}" + "\" ");
+		return sb.toString();
+	}
+	public String buildProcess(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append(" process=\"#{"+ NamingConvention.getClassControllerName(getEntityProperty())+"}" + "\" ");
+		return sb.toString();
+	}
+	public String buildReRender(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append(" reRender=\""+getRender()+","+"headerPanel"+" \"");
+		return sb.toString();
+	}
+	public String buildRendered(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append(" rendered=\"#{"+ NamingConvention.getClassControllerName(getEntityProperty())+"}" + "\" ");
+		return sb.toString();
+	}
+	public String buildRequestDelay(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append(" requestDelay=\"#{"+ NamingConvention.getClassControllerName(getEntityProperty())+"}" + "\" ");
+		return sb.toString();
+	}
+	public String buildSimilarityGroupingId(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append(" similarityGroupingId=\"#{"+ NamingConvention.getClassControllerName(getEntityProperty())+"}" + "\" ");
+		return sb.toString();
+	}
+	public String buildStatus(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append(" Status=\""+getStatus()+" \"");
+		return sb.toString();
+	}
+	public String buildStyle(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append(" style=\""+getStyle()+" \"");
+		return sb.toString();
+	}
+	public String builStyleClass(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append(" styleClass=\""+getStyleClass()+" \"");
+		return sb.toString();
+	}
+	public String builTimeout(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append(" timeout=\""+" 100 "+" \"");
+		return sb.toString();
+	}
+	public String builTitle(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append(" title=\"#{"+ NamingConvention.getClassControllerName( getEntityName() ) +"."+ getEntityProperty()+"}" + "\" ");
+		return sb.toString();
+	}
+	public String builType(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append(" Type=\"#{"+ NamingConvention.getClassControllerName( getEntityName() ) +"."+ getEntityProperty()+"}" + "\" ");
+		return sb.toString();
+	}
+	public String builValue(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append(" Value=\"#{"+ NamingConvention.getClassControllerName( getEntityName() ) +"."+ getEntityProperty()+"}" + "\" ");
+		return sb.toString();
+	}
 	
 	
 	
@@ -782,5 +924,7 @@ public abstract class Component {
 		sb.append( " name=\"" + buildStringName() + "\"" );
 		return getEntityProperty()+getName();
 	}
+	
+	
 	
 }
