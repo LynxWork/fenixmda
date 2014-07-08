@@ -4,11 +4,8 @@ import mx.com.damsolutions.mda.util.NamingConvention;
 
 public class InplaceInput extends InputTextField {
 
-	public InplaceInput(String id, String name, String entityName,
-			String entityProperty) {
-		super(id, name, entityName, entityProperty);
-		// TODO Auto-generated constructor stub
-	}
+	public InplaceInput(String id, String name, String entityName,String entityProperty) {
+		super(id, name, entityName, entityProperty); 	}
 
 	protected String defaultLabel;
 	
@@ -38,7 +35,7 @@ public class InplaceInput extends InputTextField {
 		if(getStyleClass()!=null && getStyleClass().length()>0){
 			resVal.append(" styleClass=\""+ getStyleClass() +"\" ");
 		}
-		if(getDisabled()!=null && getDisabled().length()>0){
+		if(getDisabled()!=null && getDisabled().booleanValue()){
 			resVal.append(" disabled=\""+ getDisabled() +"\" ");
 		}
 		if(getRendered()!=null && getRendered().length()>0){

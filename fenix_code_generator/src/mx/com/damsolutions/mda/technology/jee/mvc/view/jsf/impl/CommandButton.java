@@ -5,24 +5,57 @@ import mx.com.damsolutions.util.StringUtil;
 
 public class CommandButton extends Component {
 	
-	public CommandButton(String id, String name){
+	public CommandButton(String id, String name, String entityName, String entityProperty){
 		this.id=id;
 		this.name=name;
+		this.entityName = entityName;
+    	this.entityProperty = entityProperty;
 	}
 
 	public String build() {
 		//propiedad=\"" + string + "\" "
 		StringBuilder button = new StringBuilder();
 		button.append("<"+NamingConvention.getJsfAjaxPrefix()+"CommandButton ");
-		if( !StringUtil.isNull( getId() ) ){ button.append( buildId() ); }
-		if( !StringUtil.isNull( buildName() ) ){ button.append( buildName() );}
-		button.append("accesskey=\""+ getAccesskey()+ " \"");
-		button.append("action=\""+ getAction()+ " \"");
-		button.append("actionListener=\""+ getActionListener()+ " \"");
-		button.append("ajaxSingle=\""+ getAjaxSingle()+ " \"");
-		button.append("alt=\""+ getAlt()+ " \"");
-		button.append("binding=\""+ getBinding()+ " \"");
-		button.append("bypassUpdates=\""+ getBypassUpdates()+ " \"");
+		if( !StringUtil.isNull( buildStringId() ) ){
+			button.append( buildId() ); 
+		}
+		if( !StringUtil.isNull( buildName() ) ){ 
+			button.append( buildName() );
+		}
+		if (!StringUtil.isNull(buildAccesskey())){
+			button.append(buildAccesskey());
+		}
+		if (!StringUtil.isNull(buildAction())){
+			button.append(buildAction());
+		}
+		if(!StringUtil.isNull(buildActionListener())){
+			button.append(buildActionListener());	
+		}
+		if (!StringUtil.isNull(buildAjaxSingle())){
+			button.append(buildAjaxSingle());
+		}
+		if(!StringUtil.isNull(alt)){
+			button.append("alt=\""+ getAlt()+ " \" ");
+		}
+		if(!StringUtil.isNull(buildBinding())){
+			button.append(buildBinding());
+		}
+		
+		if(!StringUtil.isNull(buildBypassUpdates())){
+			button.append(buildBypassUpdates());
+		}
+		if(!StringUtil.isNull(buildData())){
+			button.append(buildData());
+		}
+		if(!StringUtil.isNull(buildDir())){
+			button.append(buildDir());
+		}
+		if(!StringUtil.isNull(buildDisabled())){
+			button.append(buildDisabled());
+		}
+		
+		
+		/*
 		button.append("data=\""+ getData()+ " \"");
 		button.append("dir=\""+ getDir()+ " \"");
 		button.append("disabled=\""+ getDisabled()+ " \"");
@@ -38,7 +71,7 @@ public class CommandButton extends Component {
 		button.append("onchange=\""+ getOnchange()+ " \"");
 		button.append( buildOnclick() );
 		button.append("oncomplete=\""+ getOncomplete()+ " \"");
-		button.append("ondblclick=\""+ getOndblclick()+ " \"");
+		
 		button.append("onfocus=\""+ getOnfocus()+ " \"");
 		button.append("onkeydown=\""+ getOnkeydown()+ " \"");
 		button.append("onkeypress=\""+ getOnkeypress()+ " \"");
@@ -62,7 +95,7 @@ public class CommandButton extends Component {
 		button.append("type=\""+ getType()+ " \"");
 		button.append("value=\""+ getValue()+ " \"");
 		button.append(" " + buildStyleClass() +" ");
-		button.append("/>");
+		button.append("/>");*/
 		return button.toString();
 	}
 
@@ -70,12 +103,13 @@ public class CommandButton extends Component {
 	
 	@Override
 	public String buildStringId(){
-		return getEntityName()+getId()+"CmdBtn";
+		return getEntityProperty()+getId()+"CmdBtn";
+		
 	}
 	
 	@Override
 	public String buildStringName(){
-		return getEntityName()+getName()+"CmdBtn";
+		return getEntityProperty()+getName()+"CmdBtn";
 	}
 
 }

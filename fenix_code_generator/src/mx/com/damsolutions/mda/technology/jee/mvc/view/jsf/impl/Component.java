@@ -1,5 +1,7 @@
 package mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl;
 
+import mx.com.damsolutions.mda.util.NamingConvention;
+
 public abstract class Component {
 
 	protected String alt;
@@ -29,7 +31,7 @@ public abstract class Component {
 	protected String data;
 	protected String dir; 
 	protected String description;
-	protected String disabled;
+	protected Boolean disabled;
 	protected String eventsQueue;
 	protected String entityName;
 	protected String entityProperty;
@@ -630,11 +632,11 @@ public abstract class Component {
 	}
 
 	
-	public String getDisabled() {
+	public Boolean getDisabled() {
 		return disabled;
 	}
 
-	public void setDisabled(String disabled) {
+	public void setDisabled(Boolean disabled) {
 		this.disabled = disabled;
 	}
 
@@ -695,6 +697,58 @@ public abstract class Component {
 		return resVal.toString();
 	}
 
+	
+	public String buildAccesskey(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append(" accesskey=\""+getAccesskey()+"\"");
+		return sb.toString();
+	}
+	public String buildAction(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append("action=\"#{"+ NamingConvention.getClassControllerName( getEntityName() ) +"."+ getEntityProperty()+"}" + "\" ");
+		return sb.toString();
+	}
+	
+	public String buildActionListener(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append("actionListener=\"#{"+ NamingConvention.getClassControllerName( getEntityName() ) +"."+ getEntityProperty()+"}" + "\" ");
+		return sb.toString();
+	}
+	
+	public String buildAjaxSingle(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append(" ajaxSingle=\""+getAjaxSingle()+"\" ");
+		return sb.toString();
+	}
+	
+	public String buildBinding(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append("binding=\"#{"+ NamingConvention.getClassControllerName( getEntityName() ) +"."+ getEntityProperty()+"}" + "\" ");
+		return sb.toString();
+	}
+	public String buildBypassUpdates(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append(" bypassUpdates=\""+getAjaxSingle()+"\" ");
+		return sb.toString();
+	}
+	
+	public String buildData(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append(" data=\""+getData()+"\" ");
+		return sb.toString();
+	}
+	public String buildDir(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append(" dir=\""+getDir()+"\" ");
+		return sb.toString();
+	}
+	public String buildDisabled(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append(" disabled=\""+getDisabled()+"\" ");
+		return sb.toString();
+	}
+	
+	
 	public String buildOnclick(){
 		StringBuilder sb = new StringBuilder("");
 		sb.append(" onclick=\""+ getOnclick()+ "\"");
@@ -703,22 +757,30 @@ public abstract class Component {
 	
 
 	
+	
+	
 	public String buildId(){
 		return " id=\"" + this.buildStringId() + "\"";
 	}
 	
 	public String buildStringId(){
-		return getEntityName()+getId();
+		StringBuilder sb = new StringBuilder("");
+		sb.append( " id=\"" + buildStringId() + "\"" );
+		return sb.toString();
+		
+		
+	
 	}
 	
 	public String buildName(){
-		StringBuilder sb = new StringBuilder("");
-		sb.append( " name=\"" + buildStringName() + "\"" );
-		return sb.toString();
+		
+		return " name=\"" + this.buildStringName() + "\"";
 	}
 	
 	public String buildStringName(){
-		return getEntityName()+getName();
+		StringBuilder sb = new StringBuilder("");
+		sb.append( " name=\"" + buildStringName() + "\"" );
+		return getEntityProperty()+getName();
 	}
 	
 }
