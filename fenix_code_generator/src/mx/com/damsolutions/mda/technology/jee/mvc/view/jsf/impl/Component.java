@@ -20,6 +20,7 @@ public abstract class Component {
 	protected String accesskey;
 	protected String actionListener;
 	protected Boolean ajaxSingle;
+	protected Boolean ajaxSubmit;
 	protected String ajaxListener;
 	protected Boolean bypassUpdates;
 	protected String binding;
@@ -35,6 +36,7 @@ public abstract class Component {
 	protected String eventsQueue;
 	protected String entityName;
 	protected String entityProperty;
+	protected String enctype;
 	protected String event;
 	protected String enabled;
 	protected String execute;
@@ -54,7 +56,7 @@ public abstract class Component {
 	protected Boolean limitToList;
 	protected String mediaOutput;
 	protected String name;
-	protected String noEscape;
+	protected Boolean noEscape;
 	protected String oaccesskey;
 	
 	protected String onbeforedomupdate;
@@ -63,6 +65,8 @@ public abstract class Component {
 	protected String oncomplete;
 	protected String onchange;
 	protected String ondblclick;
+	protected String onreset;
+	protected String onsubmit;
 	protected String onfocus;
 	protected String onkeydown;
 	protected String onkeypress;
@@ -76,6 +80,7 @@ public abstract class Component {
 	protected String outputPanel;
 	
 	protected String page;
+	protected String prependId;
 	protected String poll;
 	protected String portlet;
 	protected String push;
@@ -110,6 +115,46 @@ public abstract class Component {
 	protected String type;
 	protected String value;
 	
+	public String getPrependId() {
+		return prependId;
+	}
+
+	public void setPrependId(String prependId) {
+		this.prependId = prependId;
+	}
+
+	public String getOnsubmit() {
+		return onsubmit;
+	}
+
+	public void setOnsubmit(String onsubmit) {
+		this.onsubmit = onsubmit;
+	}
+
+	public String getOnreset() {
+		return onreset;
+	}
+
+	public void setOnreset(String onreset) {
+		this.onreset = onreset;
+	}
+
+	public String getEnctype() {
+		return enctype;
+	}
+
+	public void setEnctype(String enctype) {
+		this.enctype = enctype;
+	}
+
+	public Boolean getAjaxSubmit() {
+		return ajaxSubmit;
+	}
+
+	public void setAjaxSubmit(Boolean ajaxSubmit) {
+		this.ajaxSubmit = ajaxSubmit;
+	}
+
 	public String getSize() {
 		return size;
 	}
@@ -134,11 +179,11 @@ public abstract class Component {
 		this.image = image;
 	}
 
-	public String getNoEscape() {
+	public Boolean getNoEscape() {
 		return noEscape;
 	}
 
-	public void setNoEscape(String noEscape) {
+	public void setNoEscape(Boolean noEscape) {
 		this.noEscape = noEscape;
 	}
 
@@ -705,13 +750,13 @@ public abstract class Component {
 	}
 	public String buildAction(){
 		StringBuilder sb = new StringBuilder("");
-		sb.append("action=\"#{"+ NamingConvention.getClassControllerName( getEntityName() ) +"."+ getEntityProperty()+"}" + "\" ");
+		sb.append(" action=\"#{"+ NamingConvention.getClassControllerName( getEntityName() ) +"."+ getEntityProperty()+"}" + "\" ");
 		return sb.toString();
 	}
 	
 	public String buildActionListener(){
 		StringBuilder sb = new StringBuilder("");
-		sb.append("actionListener=\"#{"+ NamingConvention.getClassControllerName( getEntityName() ) +"."+ getEntityProperty()+"}" + "\" ");
+		sb.append(" actionListener=\"#{"+ NamingConvention.getClassControllerName( getEntityName() ) +"."+ getEntityProperty()+"}" + "\" ");
 		return sb.toString();
 	}
 	
@@ -720,6 +765,12 @@ public abstract class Component {
 		sb.append(" ajaxSingle=\""+getAjaxSingle()+"\" ");
 		return sb.toString();
 	}
+	public String buildAjaxSubmit(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append(" ajaxSubmit=\""+getAjaxSingle()+"\" ");
+		return sb.toString();
+	}
+	
 	
 	public String buildBinding(){
 		StringBuilder sb = new StringBuilder("");
@@ -783,11 +834,17 @@ public abstract class Component {
 		sb.append(" limitToList=\"#{"+ getLimitToList()+"}" + "\" ");
 		return sb.toString();
 	}
+	public String buildNoEscape(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append(" noEscape=\""+ getNoEscape()+ "\" ");
+		return sb.toString();
+	}
 	public String buildOnbeforedomupdate(){
 		StringBuilder sb = new StringBuilder("");
 		sb.append(" Onbeforedomupdate=\"#{"+ getOnbeforedomupdate()+"}" + "\" ");
 		return sb.toString();
 	}
+	
 	public String buildOnclick(){
 		StringBuilder sb = new StringBuilder("");
 		sb.append(" onclick=\"" + " setTheValue()"+" \"");
@@ -823,6 +880,11 @@ public abstract class Component {
 		sb.append(" onmousedown=\"" +NamingConvention.getClassControllerName( getEntityName() ) +"."+ getEntityProperty()+"();" + "\" ");
 		return sb.toString();
 	}
+	public String buildOnmousemove(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append(" onmousemove=\"" +NamingConvention.getClassControllerName( getEntityName() ) +"."+ getEntityProperty()+"();" + "\" ");
+		return sb.toString();
+	}
 	public String buildOnmouseout(){
 		StringBuilder sb = new StringBuilder("");
 		sb.append(" onmouseout=\"" +NamingConvention.getClassControllerName( getEntityName() ) +"."+ getEntityProperty()+"()" + "\" ");
@@ -845,7 +907,7 @@ public abstract class Component {
 	}
 	public String buildReRender(){
 		StringBuilder sb = new StringBuilder("");
-		sb.append(" reRender=\""+getRender()+","+"headerPanel"+" \"");
+		sb.append(" reRender=\"" + getReRender() + " \"");
 		return sb.toString();
 	}
 	public String buildRendered(){
@@ -873,27 +935,23 @@ public abstract class Component {
 		sb.append(" style=\""+getStyle()+" \"");
 		return sb.toString();
 	}
-	public String builStyleClass(){
-		StringBuilder sb = new StringBuilder("");
-		sb.append(" styleClass=\""+getStyleClass()+" \"");
-		return sb.toString();
-	}
-	public String builTimeout(){
+	
+	public String buildTimeout(){
 		StringBuilder sb = new StringBuilder("");
 		sb.append(" timeout=\""+" 100 "+" \"");
 		return sb.toString();
 	}
-	public String builTitle(){
+	public String buildTitle(){
 		StringBuilder sb = new StringBuilder("");
 		sb.append(" title=\"#{"+ NamingConvention.getClassControllerName( getEntityName() ) +"."+ getEntityProperty()+"}" + "\" ");
 		return sb.toString();
 	}
-	public String builType(){
+	public String buildType(){
 		StringBuilder sb = new StringBuilder("");
 		sb.append(" Type=\"#{"+ NamingConvention.getClassControllerName( getEntityName() ) +"."+ getEntityProperty()+"}" + "\" ");
 		return sb.toString();
 	}
-	public String builValue(){
+	public String buildValue(){
 		StringBuilder sb = new StringBuilder("");
 		sb.append(" Value=\"#{"+ NamingConvention.getClassControllerName( getEntityName() ) +"."+ getEntityProperty()+"}" + "\" ");
 		return sb.toString();

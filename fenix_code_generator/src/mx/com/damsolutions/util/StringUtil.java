@@ -10,6 +10,6 @@ public class StringUtil {
 			resval=true;
 		}
 		return resval;
+		
 	}
-
 }

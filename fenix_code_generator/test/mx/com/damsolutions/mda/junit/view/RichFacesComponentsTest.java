@@ -9,6 +9,7 @@ import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.AjaxListener;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.Column;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.CommandButton;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.CommandLink;
+import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.Form;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.HtmlCommandLink;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.InplaceInput;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.InputTextField;
@@ -23,14 +24,7 @@ public class RichFacesComponentsTest {
 
 	public static void main(String[] args) {
 		
-//		HtmlCommandLink htmlCommandLink = new HtmlCommandLink("Usuario","nombre");
-//		htmlCommandLink.setAction("action");
-//		htmlCommandLink.setValue("link");
-//		System.out.println("texto:" + htmlCommandLink.build());
-		
-		
-//		AjaxListener ajaxListener = new AjaxListener();
-//		System.out.println("texto: " + ajaxListener.build());
+
 		
 //		Column column = new Column();
 //		System.out.println("texto: " + column.build());
@@ -52,8 +46,8 @@ public class RichFacesComponentsTest {
 		
 		
 		
-		ActionListener listener = new ActionListener("Usuario","nombre");
-	    System.out.println("texto: " + listener.build());
+//		ActionListener listener = new ActionListener("Usuario","nombre");
+//	    System.out.println("texto: " + listener.build());
 		
 //		A4jAjax ajax = new A4jAjax();
 //		ajax.setEvent("keyup");
@@ -77,10 +71,59 @@ public class RichFacesComponentsTest {
 		
 		System.out.println("texto: " + function.build()); */
 		
-		InplaceInput inplaceInput = new InplaceInput("id", "name", "Usuario","nombre");
-		System.out.println("texto: " + inplaceInput.build()); 
+//		InplaceInput inplaceInput = new InplaceInput("id", "name", "Usuario","nombre");
+//		System.out.println("texto: " + inplaceInput.build()); 
+		Form form = new Form("id", "name","Usuario","Nombre");
+		form.setAjaxSingle(Boolean.TRUE);
+        form.setAjaxSubmit(Boolean.TRUE);
+        form.setBypassUpdates(Boolean.TRUE);
+        form.setData("data");
+        form.setEventsQueue("eventsQueue");
+        form.setFocus("focus");
+        form.setIgnoreDupResponses(Boolean.TRUE);
+        form.setImmediate(Boolean.TRUE);
+        form.setLimitToList(Boolean.TRUE);
+        form.setOnbeforedomupdate("onbeforedomupdate");
+        form.setReRender("reRender");
+        form.setStatus("status");
+        form.setStyle("style");
+        form.setTarget("target");
+		System.out.println("texto: " + form.build());
 		
+        HtmlCommandLink htmlCommandLink = new HtmlCommandLink("id", "name","Usuario","Nombre");
+        htmlCommandLink.setAccesskey("accesskey");
+        htmlCommandLink.setCharset("charset");
+        htmlCommandLink.setCoords("coords");
+        htmlCommandLink.setData("data");
+        htmlCommandLink.setDir("dir");
+        htmlCommandLink.setDisabled(Boolean.TRUE);
+        htmlCommandLink.setEventsQueue("eventsQueue");
+        htmlCommandLink.setFocus("focus");
+        htmlCommandLink.setIgnoreDupResponses(Boolean.TRUE);
+        htmlCommandLink.setImmediate(Boolean.TRUE);
+        htmlCommandLink.setLang("lang");
+        htmlCommandLink.setLimitToList(Boolean.TRUE);
+        htmlCommandLink.setOnbeforedomupdate("onbeforedomupdate");
+        htmlCommandLink.setHreflang("hreflang");
+        htmlCommandLink.setOnblur("onblur");
+        htmlCommandLink.setOnfocus("onfocus");
+        htmlCommandLink.setReRender("reRender");
+        htmlCommandLink.setRel("rel");
+        htmlCommandLink.setRev("rev");
+        htmlCommandLink.setShape("shape");
+        htmlCommandLink.setStyle("style");
+        htmlCommandLink.setTabindex("tabindex");
+        htmlCommandLink.setTarget("target");
+        System.out.println("texto:" + htmlCommandLink.build());
 		
+        AjaxListener ajaxListener = new AjaxListener("id", "name","Usuario","Nombre");
+        System.out.println("texto: " + ajaxListener.build());
+
+        ActionParam actionParam  = new ActionParam("id", "name", "Usuario","nombre");
+		actionParam.setConverter("converter");
+		actionParam.setNoEscape(Boolean.TRUE);
+		System.out.println("texto: " + actionParam.build());
+        
 		CommandButton button = new CommandButton("id", "name","Usuario","Nombre");
 	    button.setAccesskey("accesskey");
 	    button.setAction("action");
@@ -128,14 +171,6 @@ public class RichFacesComponentsTest {
         button.setType("type");
         System.out.println("texto: " + button.build());
 		
-		
-        /*ActionParam actionParam  = new ActionParam("Usuario","Nombre");
-		actionParam.setActionListener("actionListener");
-		actionParam.setBinding("binding");
-		actionParam.setConverter("converter");
-		actionParam.setNoEscape("noEscape");
-		actionParam.setValue("value");
-		System.out.println("texto: " + actionParam.build());*/
 		
 		/*CommandLink link = new CommandLink("Usuario","nombre");
 		link.setAction("keyup");

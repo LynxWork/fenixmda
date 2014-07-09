@@ -146,17 +146,17 @@ public class CommandButton extends Component {
 		if(!StringUtil.isNull(tabindex)){
 			button.append("tabindex=\""+" 3 "+ " \"");
 		}
-		if(!StringUtil.isNull(builTimeout())){
-			button.append(builTimeout());
+		if(!StringUtil.isNull(buildTimeout())){
+			button.append(buildTimeout());
 		}
-		if(!StringUtil.isNull(builTitle())){
-			button.append(builTitle());
+		if(!StringUtil.isNull(buildTitle())){
+			button.append(buildTitle());
 		}
-		if(!StringUtil.isNull(builType())){
-			button.append(builType());
+		if(!StringUtil.isNull(buildType())){
+			button.append(buildType());
 		}
-		if(!StringUtil.isNull(builValue())){
-			button.append(builValue());
+		if(!StringUtil.isNull(buildValue())){
+			button.append(buildValue());
 		}
 		button.append("/>");
 		return button.toString();
