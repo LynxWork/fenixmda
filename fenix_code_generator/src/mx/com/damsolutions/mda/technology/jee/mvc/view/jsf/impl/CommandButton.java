@@ -40,7 +40,6 @@ public class CommandButton extends Component {
 		if(!StringUtil.isNull(buildBinding())){
 			button.append(buildBinding());
 		}
-		
 		if(!StringUtil.isNull(buildBypassUpdates())){
 			button.append(buildBypassUpdates());
 		}

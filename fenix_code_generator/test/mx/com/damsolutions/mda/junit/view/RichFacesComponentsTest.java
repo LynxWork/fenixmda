@@ -16,6 +16,7 @@ import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.InplaceInput;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.InputTextField;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.JsFunction;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.KeepAlive;
+import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.LoadBundle;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.Param;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.Poll;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.Push;
@@ -63,6 +64,11 @@ public class RichFacesComponentsTest {
 	
 //		InplaceInput inplaceInput = new InplaceInput("id", "name", "Usuario","nombre");
 //		System.out.println("texto: " + inplaceInput.build());
+		LoadBundle loadBundle = new LoadBundle("id", "name", "Usuario","nombre");
+		loadBundle.setBeanName("beanName");
+		loadBundle.setVar("var");
+		System.out.println("texto: " + loadBundle.build());
+		
 		KeepAlive keepAlive = new KeepAlive("id", "name", "Usuario","nombre");
 		keepAlive.setAjaxOnly("ajaxOnly");
 		keepAlive.setBeanName("beanName");

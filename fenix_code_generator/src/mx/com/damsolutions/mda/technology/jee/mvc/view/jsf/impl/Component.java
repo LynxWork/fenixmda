@@ -120,7 +120,16 @@ public abstract class Component {
 	protected String type;
 	protected String viewId;
 	protected String value;
+	protected String var;
 	
+	public String getVar() {
+		return var;
+	}
+
+	public void setVar(String var) {
+		this.var = var;
+	}
+
 	public String getAjaxOnly() {
 		return ajaxOnly;
 	}
