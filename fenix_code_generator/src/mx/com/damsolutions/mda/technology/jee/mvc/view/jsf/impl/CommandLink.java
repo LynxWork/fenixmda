@@ -1,60 +1,175 @@
 package mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl;
 
 import mx.com.damsolutions.mda.util.NamingConvention;
+import mx.com.damsolutions.util.StringUtil;
 
 public class CommandLink extends Component {
 	
-	 public CommandLink(String entityName, String entityProperty){
+	 public CommandLink(String id, String name, String entityName, String entityProperty){
 	    	
-	    	this.entityName = entityName;
+		    this.id=id;
+			this.name=name;
+			this.entityName = entityName;
 	    	this.entityProperty = entityProperty;
 	    }
-	@Override
+	
 	public String build() {
 		StringBuilder link = new StringBuilder();
-		link.append("<"+NamingConvention.getJsfAjaxPrefix()+"commandLink ");
-		link.append( buildId() );
-		link.append("action=\""+ getAction()+ " \"");
-		link.append("actionListener=\""+ getActionListener()+ " \"");
-		link.append("binding=\""+ getBinding()+ " \"");
-		link.append("bypassUpdates=\""+ getBypassUpdates()+ " \"");
-		link.append("charset=\""+ getCharset()+ " \"");
-		link.append("coords=\""+ getCoords()+ " \"");
-		link.append("data=\""+ getData()+ " \"");
-		link.append("disabled=\""+ getDisabled()+ " \"");
-		link.append("execute=\""+ getExecute()+ " \"");
-		link.append("hreflang=\""+ getHreflang()+ " \"");
-		link.append("immediate=\""+ getImmediate()+ " \"");
-		link.append("immediate=\""+ getImmediate()+ " \"");
-		link.append("limitRender=\""+ getLimitRender()+ " \"");
-		link.append("limitToList=\""+ getLimitToList()+ " \"");
-		link.append("onbeforedomupdate=\""+ getOnbeforedomupdate()+ " \"");
-		link.append("onbegin=\""+ getOnbegin()+ " \"");
-		link.append("onbegin=\""+ getOnbegin()+ " \"");
-		link.append( buildOnclick() );
-		link.append("oncomplete=\""+ getOncomplete()+ " \"");
-		link.append("ondblclick=\""+ getOndblclick()+ " \"");
-		link.append("oaccesskey=\""+ getOaccesskey()+ " \"");
-		link.append("onkeydown=\""+ getOnkeydown()+ " \"");
-		link.append("onkeypress=\""+ getOnkeypress()+ " \"");
-		link.append("onkeyup=\""+ getOnkeyup()+ " \"");
-		link.append("onmousedown=\""+ getOnmousedown()+ " \"");
-		link.append("onmousemove=\""+ getOnmousemove()+ " \"");
-		link.append("onmouseout=\""+ getOnmouseout()+ " \"");
-		link.append("onmouseover=\""+ getOnmouseover()+ " \"");
-		link.append("onmouseup=\""+ getOnmouseup()+ " \"");
-		link.append("rel=\""+ getRel()+ " \"");
-		link.append("render=\""+ getRel()+ " \"");
-		link.append("rendered=\""+ getRender()+ " \"");
-		link.append("rev=\""+ getRev()+ " \"");
-		link.append("shape=\""+ getShape()+ " \"");
-		link.append("status=\""+ getStatus()+ " \"");
-		link.append("style=\""+ getStyle()+ " \"");
-		link.append("styleClass=\""+ getStyleClass()+ " \"");
-		link.append("title=\""+ getTitle()+ " \"");
-		link.append("type=\""+ getType()+ " \"");
-		link.append("value=\""+ getValue()+ " \"");
-		link.append(" " + buildStyleClass() +" ");
+		link.append("<"+NamingConvention.getJsfAjaxPrefix()+"CommandLink ");
+		if( !StringUtil.isNull( buildStringId() ) ){
+			link.append( buildId() ); 
+		}
+		if( !StringUtil.isNull( buildName() ) ){ 
+			link.append( buildName() );
+		}
+		if( !StringUtil.isNull( buildAccesskey() ) ){ 
+			link.append( buildAccesskey() );
+		}
+		if( !StringUtil.isNull( buildAction() ) ){ 
+			link.append( buildAction() );
+		}
+		if( !StringUtil.isNull( buildActionListener() ) ){ 
+			link.append( buildActionListener() );
+		}
+		if (!StringUtil.isNull(buildAjaxSingle())){
+			link.append(buildAjaxSingle());
+		}
+		if( !StringUtil.isNull( buildBinding() ) ){ 
+			link.append( buildBinding() );
+		}
+		if(!StringUtil.isNull(buildBypassUpdates())){
+			link.append(buildBypassUpdates());
+		}
+		if( !StringUtil.isNull( charset ) ){ 
+			link.append("charset=\""+ getCharset()+ " \"");
+		}
+		if( !StringUtil.isNull( coords ) ){ 
+			link.append("coords=\""+ getCoords()+ " \"");
+		}
+		if( !StringUtil.isNull( buildData() ) ){ 
+			link.append(buildData());
+		}
+		if( !StringUtil.isNull( buildDir() ) ){ 
+			link.append(buildDir());
+		}
+		if( !StringUtil.isNull( buildDisabled() ) ){ 
+			link.append(buildDisabled());
+		}
+		if( !StringUtil.isNull( buildEventsQueue() ) ){ 
+			link.append(buildEventsQueue());
+		}
+		if( !StringUtil.isNull( buildFocus() ) ){ 
+			link.append(buildFocus());
+		}
+		if( !StringUtil.isNull( hreflang ) ){ 
+			link.append("hreflang=\""+ getHreflang()+ " \"");
+		}
+		if( !StringUtil.isNull( buildIgnoreDupResponses() ) ){ 
+			link.append(buildIgnoreDupResponses());
+		}
+		if( !StringUtil.isNull( buildImmediate() ) ){ 
+			link.append(buildImmediate());
+		}
+		if( !StringUtil.isNull( buildLang() ) ){ 
+			link.append(buildLang());
+		}
+		if( !StringUtil.isNull( buildLimitToList() ) ){ 
+			link.append(buildLimitToList());
+		}
+		if( !StringUtil.isNull( buildOnbeforedomupdate() ) ){ 
+			link.append(buildOnbeforedomupdate());
+		}
+		if( !StringUtil.isNull( onblur ) ){ 
+			link.append("onblur=\""+ getOnblur()+ " \"");
+		}
+		if( !StringUtil.isNull( buildOnclick() ) ){ 
+			link.append(buildOnclick());
+		}
+		if( !StringUtil.isNull( buildOncomplete() ) ){ 
+			link.append(buildOncomplete());
+		}
+		if( !StringUtil.isNull( buildOndblclick() ) ){ 
+			link.append(buildOndblclick());
+		}
+		if( !StringUtil.isNull( onfocus ) ){ 
+			link.append("onfocus=\""+ getOnblur()+ " \"");
+		}
+		if( !StringUtil.isNull( buildOnkeydown() ) ){ 
+			link.append(buildOnkeydown());
+		}
+		if( !StringUtil.isNull( buildOnkeypress() ) ){ 
+			link.append(buildOnkeypress());
+		}
+		if( !StringUtil.isNull( buildOnkeyup() ) ){ 
+			link.append(buildOnkeyup());
+		}
+		if( !StringUtil.isNull( buildOnmousedown() ) ){ 
+			link.append(buildOnmousedown());
+		}
+		if( !StringUtil.isNull( buildOnmousemove() ) ){ 
+			link.append(buildOnmousemove());
+		}
+		if( !StringUtil.isNull( buildOnmouseout() ) ){ 
+			link.append(buildOnmouseout());
+		}
+		if( !StringUtil.isNull( buildOnmouseover() ) ){ 
+			link.append(buildOnmouseover());
+		}
+		if( !StringUtil.isNull( buildOnmouseup() ) ){ 
+			link.append(buildOnmouseup());
+		}
+		if( !StringUtil.isNull( buildProcess() ) ){ 
+			link.append(buildProcess());
+		}
+		if( !StringUtil.isNull( buildReRender() ) ){ 
+			link.append(buildReRender());
+		}
+		if( !StringUtil.isNull( rel ) ){ 
+			link.append("rel=\""+ getRel()+ " \"");
+		}
+		if( !StringUtil.isNull( buildRendered() ) ){ 
+			link.append(buildRendered());
+		}
+		if(!StringUtil.isNull(buildRequestDelay())){
+			link.append(buildRequestDelay());
+		}
+		if( !StringUtil.isNull( rev ) ){ 
+			link.append(" rev=\""+"2.0"+ " \"");
+		}
+		if( !StringUtil.isNull( shape ) ){ 
+			link.append(" shape=\""+"1.0"+ " \"");
+		}
+		if( !StringUtil.isNull( buildSimilarityGroupingId() ) ){ 
+			link.append(buildSimilarityGroupingId());
+		}
+		
+		if(!StringUtil.isNull(buildStatus())){
+			link.append(buildStatus());
+		}
+		if( !StringUtil.isNull( buildStyle() ) ){ 
+			link.append(buildStyle());
+		}
+		if(!StringUtil.isNull(buildStyleClass())){
+			link.append(buildStyleClass());
+		}
+		if( !StringUtil.isNull( tabindex ) ){ 
+			link.append(" tabindex=\"#{"+ NamingConvention.getClassControllerName( getEntityName() ) +"."+ getEntityProperty()+"}" + "\" ");
+		}
+		if( !StringUtil.isNull( target ) ){ 
+			link.append(" target=\"#{"+ NamingConvention.getClassControllerName( getEntityName() ) +"."+ getEntityProperty()+"}" + "\" ");
+		}
+		if( !StringUtil.isNull( buildTimeout() ) ){ 
+			link.append(buildTimeout());
+		}
+		if( !StringUtil.isNull( buildTitle() ) ){ 
+			link.append(buildTitle());
+		}
+		if( !StringUtil.isNull( buildType() ) ){ 
+			link.append(buildType());
+		}
+		if( !StringUtil.isNull( buildValue() ) ){ 
+			link.append(buildValue());
+		}
 		link.append("/>");
 		return link.toString();
 	}

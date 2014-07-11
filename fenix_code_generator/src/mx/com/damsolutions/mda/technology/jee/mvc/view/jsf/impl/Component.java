@@ -22,6 +22,7 @@ public abstract class Component {
 	protected Boolean ajaxSingle;
 	protected Boolean ajaxSubmit;
 	protected String ajaxListener;
+	protected Boolean ajaxRendered;
 	protected Boolean bypassUpdates;
 	protected String binding;
 	protected String charset;
@@ -52,6 +53,7 @@ public abstract class Component {
 	protected String include;
 	protected String interval;
 	protected String lang;
+	protected String layout;
 	protected String limitRender;
 	protected Boolean limitToList;
 	protected String mediaOutput;
@@ -96,6 +98,7 @@ public abstract class Component {
     protected String rendered;
 	protected String render;
 	protected String jsFunction;
+	protected Boolean keepTransient;
 	protected String loadBundle;
 	protected String loadScript;
 	protected String loadStyle;
@@ -113,8 +116,41 @@ public abstract class Component {
 	protected String timeout;
 	protected String title;
 	protected String type;
+	protected String viewId;
 	protected String value;
 	
+	public String getViewId() {
+		return viewId;
+	}
+
+	public void setViewId(String viewId) {
+		this.viewId = viewId;
+	}
+
+	public Boolean getKeepTransient() {
+		return keepTransient;
+	}
+
+	public void setKeepTransient(Boolean keepTransient) {
+		this.keepTransient = keepTransient;
+	}
+
+	public String getLayout() {
+		return layout;
+	}
+
+	public void setLayout(String layout) {
+		this.layout = layout;
+	}
+
+	public Boolean getAjaxRendered() {
+		return ajaxRendered;
+	}
+
+	public void setAjaxRendered(Boolean ajaxRendered) {
+		this.ajaxRendered = ajaxRendered;
+	}
+
 	public String getPrependId() {
 		return prependId;
 	}
@@ -765,6 +801,11 @@ public abstract class Component {
 		sb.append(" ajaxSingle=\""+getAjaxSingle()+"\" ");
 		return sb.toString();
 	}
+	public String buildAjaxRendered(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append(" ajaxRendered=\""+getAjaxRendered()+"\" ");
+		return sb.toString();
+	}
 	public String buildAjaxSubmit(){
 		StringBuilder sb = new StringBuilder("");
 		sb.append(" ajaxSubmit=\""+getAjaxSingle()+"\" ");
@@ -822,6 +863,11 @@ public abstract class Component {
 	public String buildImmediate(){
 		StringBuilder sb = new StringBuilder("");
 		sb.append(" immediate=\""+ getImmediate()+ "\"");
+		return sb.toString();
+	}
+	public String buildkeepTransient(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append(" keepTransient=\""+ getKeepTransient()+ "\"");
 		return sb.toString();
 	}
 	public String buildLang(){
@@ -927,7 +973,7 @@ public abstract class Component {
 	}
 	public String buildStatus(){
 		StringBuilder sb = new StringBuilder("");
-		sb.append(" Status=\""+getStatus()+" \"");
+		sb.append(" status=\""+getStatus()+" \"");
 		return sb.toString();
 	}
 	public String buildStyle(){

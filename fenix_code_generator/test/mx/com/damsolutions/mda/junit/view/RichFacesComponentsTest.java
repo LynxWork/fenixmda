@@ -11,6 +11,7 @@ import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.CommandButton;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.CommandLink;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.Form;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.HtmlCommandLink;
+import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.Include;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.InplaceInput;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.InputTextField;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.JsFunction;
@@ -72,7 +73,17 @@ public class RichFacesComponentsTest {
 		System.out.println("texto: " + function.build()); */
 		
 //		InplaceInput inplaceInput = new InplaceInput("id", "name", "Usuario","nombre");
-//		System.out.println("texto: " + inplaceInput.build()); 
+//		System.out.println("texto: " + inplaceInput.build());
+		
+		Include include = new Include("id", "name", "Usuario","nombre"); 
+		include.setAjaxRendered(Boolean.TRUE);
+		include.setDir("dir");
+		include.setKeepTransient(Boolean.TRUE);
+		include.setLang("lang");
+		include.setReRender("reRender");
+		include.setStyle("style");
+		System.out.println("texto: " + include.build());
+		
 		Form form = new Form("id", "name","Usuario","Nombre");
 		form.setAjaxSingle(Boolean.TRUE);
         form.setAjaxSubmit(Boolean.TRUE);
@@ -171,53 +182,34 @@ public class RichFacesComponentsTest {
         button.setType("type");
         System.out.println("texto: " + button.build());
 		
-		
-		/*CommandLink link = new CommandLink("Usuario","nombre");
-		link.setAction("keyup");
-		link.setActionListener("out");
-		link.setBinding("@form");
-		link.setBypassUpdates(Boolean.TRUE);
-		link.setCharset("out");
-		link.setCoords("@form");
-		link.setData("keyup");
-		link.setDisabled("out");
-		link.setExecute("@form");
-		link.setHreflang("keyup");
-		link.setImmediate (Boolean.TRUE);
-		link.setLimitToList(Boolean.TRUE);
-		link.setLimitRender("@form");
-		link.setOnbeforedomupdate("onbeforedomupdate");
-		link.setOnbegin("onbegin");
-		link.setOnclick("onclick");
-		link.setOncomplete("oncomplete");
-		link.setOndblclick("ondblclick");
-		link.setOaccesskey("oaccesskey");
-		link.setOnkeydown("onkeydown");
-		link.setOnkeypress("onkeypress");
-		link.setOnkeyup("onkeyup");
-		link.setOnmousedown("onmousedown");
-		link.setOnmousemove("onmousemove");
-		link.setOnmousemove("onmousemove");
-		link.setOnmouseout("onmouseout");
-		link.setOnmouseover("onmouseover");
-		link.setOnmousedown("onmousedown");
-		link.setOnmouseup("onmouseup");
-		link.setRel("rel");
-		link.setRender("render");
-		link.setRendered("rendered");
-		link.setRev("rev");
-		link.setShape("shape");
-		link.setStatus("status");
-		link.setStyle("style");
-		link.setStyleClass("styleClass");
-		link.setTitle("title");
-		link.setType("type");
-		link.setValue("value");
-		System.out.println("texto: " + link.build()); */
-		
-		
-		
-		
+		CommandLink link = new CommandLink("id", "name","Usuario","Nombre");
+		link.setAccesskey("accesskey");
+		link.setAjaxSingle(Boolean.TRUE);
+        link.setCharset("charset");
+        link.setCoords("coords");
+        link.setBypassUpdates(Boolean.TRUE);
+        link.setData("data");
+        link.setDir("dir");
+        link.setDisabled(Boolean.TRUE);
+        link.setEventsQueue("eventsQueue");
+        link.setFocus("focus");
+        link.setIgnoreDupResponses(Boolean.TRUE);
+        link.setImmediate(Boolean.TRUE);
+        link.setLang("lang");
+        link.setLimitToList(Boolean.TRUE);
+        link.setOnbeforedomupdate("onbeforedomupdate");
+        link.setHreflang("hreflang");
+        link.setOnblur("onblur");
+        link.setOnfocus("onfocus");
+        link.setReRender("reRender");
+        link.setRel("rel");
+        link.setRev("rev");
+        link.setShape("shape");
+        link.setStatus("status");
+        link.setStyle("style");
+        link.setTabindex("tabindex");
+        link.setTarget("target");
+		System.out.println("texto: " + link.build()); 
 	}
 		
 }

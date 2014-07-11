@@ -137,6 +137,9 @@ public class CommandButton extends Component {
 		if(!StringUtil.isNull(buildStatus())){
 			button.append(buildStatus());
 		}
+		if( !StringUtil.isNull( buildSimilarityGroupingId() ) ){ 
+			button.append(buildSimilarityGroupingId());
+		}
 		if(!StringUtil.isNull(buildStyle())){
 			button.append(buildStyle());
 		}
