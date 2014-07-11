@@ -4,17 +4,34 @@ import mx.com.damsolutions.mda.util.NamingConvention;
 import mx.com.damsolutions.util.StringUtil;
 
 public class Form extends Component {
+	private Component[] components;
+	
+	public Form(Component... components){
+		this.components = components;
+		
+		
+	}
+	
 	public Form(String id, String name, String entityName, String entityProperty){
 		this.id=id;
 		this.name=name;
 		this.entityName = entityName;
     	this.entityProperty = entityProperty;
 	}
-	
+	@Override
 	public String build() {
 		//propiedad=\"" + string + "\" "
 		StringBuilder form = new StringBuilder();
-		form.append("<"+NamingConvention.getJsfAjaxPrefix()+"Form ");
+		form.append("<"+NamingConvention.getJsfAjaxPrefix()+"form ");
+		if(getComponents()!=null && getComponents().length>0){
+			for(Component component: getComponents() ){
+				if(component instanceof OutputTextField){
+					OutputTextField outputTextField = (OutputTextField) component;
+					form.append(outputTextField.toString());
+				}
+				//Validate more valid components inner this component
+			}
+		}
 		if( !StringUtil.isNull( buildStringId() ) ){
 			form.append( buildId() ); 
 		}
@@ -101,12 +118,20 @@ public class Form extends Component {
 		if(!StringUtil.isNull(target)){
 		    form.append(" target=\"#{"+ NamingConvention.getClassControllerName( getEntityName() ) +"."+ getEntityProperty()+"}" + "\" ");
 		}
-		form.append("/>");
+		
+		form.append("</"+NamingConvention.getJsfAjaxPrefix()+"form >");
 		return form.toString();
 	}
-
-
+    
 	
+	public Component[] getComponents() {
+		return components;
+	}
+
+	public void setComponents(Component[] components) {
+		this.components = components;
+	}
+    	
 	@Override
 	public String buildStringId(){
 		return getEntityProperty()+getId()+"CmdForm";

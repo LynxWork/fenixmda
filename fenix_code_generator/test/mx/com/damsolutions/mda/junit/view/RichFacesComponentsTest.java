@@ -15,6 +15,7 @@ import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.Include;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.InplaceInput;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.InputTextField;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.JsFunction;
+import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.KeepAlive;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.Param;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.Poll;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.Push;
@@ -59,21 +60,27 @@ public class RichFacesComponentsTest {
 //		field.setDescription("Descripcion del componente");
 //		field.setLabel("Ingrese su nombre");
 //		System.out.println("texto: " + field.build());
+	
+//		InplaceInput inplaceInput = new InplaceInput("id", "name", "Usuario","nombre");
+//		System.out.println("texto: " + inplaceInput.build());
+		KeepAlive keepAlive = new KeepAlive("id", "name", "Usuario","nombre");
+		keepAlive.setAjaxOnly("ajaxOnly");
+		keepAlive.setBeanName("beanName");
+		System.out.println("texto: " + keepAlive.build());
 		
-/*		JsFunction function = new JsFunction("Usuario","nombre");
-		function.setName("updateName");
+		JsFunction function = new JsFunction("id", "name", "Usuario","nombre");
 		function.setAjaxSingle(Boolean.FALSE);
 		function.setBypassUpdates(Boolean.TRUE);
+		function.setData("data");
 		function.setEventsQueue("eventsQueue");
+		function.setFocus("focus");
 		function.setIgnoreDupResponses(Boolean.TRUE);
 		function.setImmediate(Boolean.TRUE);
 		function.setLimitToList(Boolean.TRUE);
 		function.setOnbeforedomupdate("onbeforedomupdate");
-		
-		System.out.println("texto: " + function.build()); */
-		
-//		InplaceInput inplaceInput = new InplaceInput("id", "name", "Usuario","nombre");
-//		System.out.println("texto: " + inplaceInput.build());
+		function.setReRender("reRender");
+		function.setStatus("status");
+		System.out.println("texto: " + function.build());
 		
 		Include include = new Include("id", "name", "Usuario","nombre"); 
 		include.setAjaxRendered(Boolean.TRUE);
@@ -84,7 +91,7 @@ public class RichFacesComponentsTest {
 		include.setStyle("style");
 		System.out.println("texto: " + include.build());
 		
-		Form form = new Form("id", "name","Usuario","Nombre");
+		Form form = new Form("id", "name", "Usuario","nombre");
 		form.setAjaxSingle(Boolean.TRUE);
         form.setAjaxSubmit(Boolean.TRUE);
         form.setBypassUpdates(Boolean.TRUE);
@@ -209,7 +216,10 @@ public class RichFacesComponentsTest {
         link.setStyle("style");
         link.setTabindex("tabindex");
         link.setTarget("target");
-		System.out.println("texto: " + link.build()); 
+		System.out.println("texto: " + link.build());
+		
+		Column column = new Column();
+		System.out.println("texto: " + column.build());
 	}
 		
 }

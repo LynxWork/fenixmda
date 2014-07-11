@@ -23,8 +23,10 @@ public abstract class Component {
 	protected Boolean ajaxSubmit;
 	protected String ajaxListener;
 	protected Boolean ajaxRendered;
+	protected String ajaxOnly;
 	protected Boolean bypassUpdates;
 	protected String binding;
+	protected String beanName;
 	protected String charset;
 	protected String commandButton;
 	protected String commandLink;
@@ -119,6 +121,22 @@ public abstract class Component {
 	protected String viewId;
 	protected String value;
 	
+	public String getAjaxOnly() {
+		return ajaxOnly;
+	}
+
+	public void setAjaxOnly(String ajaxOnly) {
+		this.ajaxOnly = ajaxOnly;
+	}
+
+	public String getBeanName() {
+		return beanName;
+	}
+
+	public void setBeanName(String beanName) {
+		this.beanName = beanName;
+	}
+
 	public String getViewId() {
 		return viewId;
 	}
