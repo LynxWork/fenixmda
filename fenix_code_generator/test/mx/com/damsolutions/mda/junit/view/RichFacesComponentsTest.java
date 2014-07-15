@@ -2,6 +2,7 @@ package mx.com.damsolutions.mda.junit.view;
 
 
 
+import mx.com.damsolutions.fenix.code.generator.classes.impl.Property;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.A4jAjax;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.ActionListener;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.ActionParam;
@@ -20,6 +21,7 @@ import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.LoadBundle;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.Param;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.Poll;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.Push;
+import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.cmp.InputTextFieldCmp;
 
 
 
@@ -97,22 +99,7 @@ public class RichFacesComponentsTest {
 		include.setStyle("style");
 		System.out.println("texto: " + include.build());
 		
-		Form form = new Form("id", "name", "Usuario","nombre");
-		form.setAjaxSingle(Boolean.TRUE);
-        form.setAjaxSubmit(Boolean.TRUE);
-        form.setBypassUpdates(Boolean.TRUE);
-        form.setData("data");
-        form.setEventsQueue("eventsQueue");
-        form.setFocus("focus");
-        form.setIgnoreDupResponses(Boolean.TRUE);
-        form.setImmediate(Boolean.TRUE);
-        form.setLimitToList(Boolean.TRUE);
-        form.setOnbeforedomupdate("onbeforedomupdate");
-        form.setReRender("reRender");
-        form.setStatus("status");
-        form.setStyle("style");
-        form.setTarget("target");
-		System.out.println("texto: " + form.build());
+
 		
         HtmlCommandLink htmlCommandLink = new HtmlCommandLink("id", "name","Usuario","Nombre");
         htmlCommandLink.setAccesskey("accesskey");
@@ -195,6 +182,7 @@ public class RichFacesComponentsTest {
         button.setType("type");
         System.out.println("texto: " + button.build());
 		
+        
 		CommandLink link = new CommandLink("id", "name","Usuario","Nombre");
 		link.setAccesskey("accesskey");
 		link.setAjaxSingle(Boolean.TRUE);
@@ -226,6 +214,29 @@ public class RichFacesComponentsTest {
 		
 		Column column = new Column();
 		System.out.println("texto: " + column.build());
+		
+		
+		Form form = new Form("id", "name", "Usuario","nombre",link);
+		form.setAjaxSingle(Boolean.TRUE);
+        form.setAjaxSubmit(Boolean.TRUE);
+        form.setBypassUpdates(Boolean.TRUE);
+        form.setData("data");
+        form.setEventsQueue("eventsQueue");
+        form.setFocus("focus");
+        form.setIgnoreDupResponses(Boolean.TRUE);
+        form.setImmediate(Boolean.TRUE);
+        form.setLimitToList(Boolean.TRUE);
+        form.setOnbeforedomupdate("onbeforedomupdate");
+        form.setReRender("reRender");
+        form.setStatus("status");
+        form.setStyle("style");
+        form.setTarget("target");
+		System.out.println("texto: " + form.build());
+		
+		
+		
+		InputTextFieldCmp inputTextFieldCmp = new InputTextFieldCmp("id", "name", "Usuario","Nombre");
+		System.out.println("texto: " + inputTextFieldCmp.build());
 	}
 		
 }

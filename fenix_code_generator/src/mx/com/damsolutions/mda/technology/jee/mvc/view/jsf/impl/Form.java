@@ -4,34 +4,23 @@ import mx.com.damsolutions.mda.util.NamingConvention;
 import mx.com.damsolutions.util.StringUtil;
 
 public class Form extends Component {
+	
 	private Component[] components;
 	
-	public Form(Component... components){
+	public Form(String id, String name, String entityName, String entityProperty,Component... components){
 		this.components = components;
-		
-		
-	}
-	
-	public Form(String id, String name, String entityName, String entityProperty){
 		this.id=id;
 		this.name=name;
 		this.entityName = entityName;
     	this.entityProperty = entityProperty;
 	}
+	
+	
 	@Override
 	public String build() {
 		//propiedad=\"" + string + "\" "
 		StringBuilder form = new StringBuilder();
-		form.append("<"+NamingConvention.getJsfAjaxPrefix()+"form ");
-		if(getComponents()!=null && getComponents().length>0){
-			for(Component component: getComponents() ){
-				if(component instanceof OutputTextField){
-					OutputTextField outputTextField = (OutputTextField) component;
-					form.append(outputTextField.toString());
-				}
-				//Validate more valid components inner this component
-			}
-		}
+		form.append("<"+NamingConvention.getJsfAjaxPrefix()+"form > ");
 		if( !StringUtil.isNull( buildStringId() ) ){
 			form.append( buildId() ); 
 		}
