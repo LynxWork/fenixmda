@@ -82,7 +82,7 @@ public abstract class Component {
 	protected String onmouseup;
 	protected String onbegin;
 	protected String outputPanel;
-	
+	protected Boolean popup;
 	protected String page;
 	protected String prependId;
 	protected String poll;
@@ -99,8 +99,10 @@ public abstract class Component {
 	protected String rev;
     protected String rendered;
 	protected String render;
+	protected String height;
 	protected String jsFunction;
 	protected Boolean keepTransient;
+	protected String level;
 	protected String loadBundle;
 	protected String loadScript;
 	protected String loadStyle;
@@ -113,6 +115,7 @@ public abstract class Component {
 	protected String style;
 	protected String support;
 	protected String size;
+	protected String src;
 	protected String tabindex;
 	protected String target;
 	protected String timeout;
@@ -121,7 +124,48 @@ public abstract class Component {
 	protected String viewId;
 	protected String value;
 	protected String var;
+	protected String width;
 	
+	public String getWidth() {
+		return width;
+	}
+
+	public void setWidth(String width) {
+		this.width = width;
+	}
+
+	public Boolean getPopup() {
+		return popup;
+	}
+
+	public void setPopup(Boolean popup) {
+		this.popup = popup;
+	}
+
+	public String getLevel() {
+		return level;
+	}
+
+	public void setLevel(String level) {
+		this.level = level;
+	}
+
+	public String getHeight() {
+		return height;
+	}
+
+	public void setHeight(String height) {
+		this.height = height;
+	}
+
+	public String getSrc() {
+		return src;
+	}
+
+	public void setSrc(String src) {
+		this.src = src;
+	}
+
 	public String getVar() {
 		return var;
 	}
@@ -971,6 +1015,11 @@ public abstract class Component {
 	public String buildOnmouseup(){
 		StringBuilder sb = new StringBuilder("");
 		sb.append(" onmouseup=\"#{"+ NamingConvention.getClassControllerName(getEntityProperty())+"}" + "\" ");
+		return sb.toString();
+	}
+	public String buildPopup(){
+		StringBuilder sb = new StringBuilder("");
+		sb.append(" popup=\"" + getPopup() + " \"");
 		return sb.toString();
 	}
 	public String buildProcess(){

@@ -18,10 +18,13 @@ import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.InputTextField;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.JsFunction;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.KeepAlive;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.LoadBundle;
+import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.LoadScript;
+import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.Log;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.Param;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.Poll;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.Push;
 import mx.com.damsolutions.mda.technology.jee.mvc.view.jsf.impl.cmp.InputTextFieldCmp;
+
 
 
 
@@ -233,10 +236,21 @@ public class RichFacesComponentsTest {
         form.setTarget("target");
 		System.out.println("texto: " + form.build());
 		
-		
+		LoadScript loadScript = new LoadScript("id", "name", "Usuario","nombre");
+		System.out.println("texto: " + loadScript.build());
 		
 		InputTextFieldCmp inputTextFieldCmp = new InputTextFieldCmp("id", "name", "Usuario","Nombre");
-		System.out.println("texto: " + inputTextFieldCmp.build());
+	    System.out.println("texto: " + inputTextFieldCmp.build());
+	    
+	    Log log = new Log("id", "name", "Usuario", "nombre");
+	    log.setDir("dir");
+	    log.setLang("lang");
+	    log.setPopup(Boolean.TRUE);
+	    log.setStyle("style");
+	    System.out.println("text:"+ log.build());
+	    
+	    JsFunction jsFunction = new JsFunction("id", "name", "Usuario","Nombre");
+	    System.out.println("text:"+ jsFunction.build());
 	}
 		
 }

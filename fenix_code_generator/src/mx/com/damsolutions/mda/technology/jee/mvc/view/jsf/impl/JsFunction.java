@@ -6,18 +6,16 @@ import mx.com.damsolutions.util.StringUtil;
 public class JsFunction extends Component {
 private Component[] components;
 	
-	public JsFunction(Component... components){
+	public JsFunction(String id, String name, String entityName, String entityProperty,Component... components){
 		this.components = components;
-		
-		
-	}
-	
-	public JsFunction(String id, String name, String entityName, String entityProperty){
 		this.id=id;
 		this.name=name;
 		this.entityName = entityName;
     	this.entityProperty = entityProperty;
+		
 	}
+	
+	
 	@Override
 	public String build() {
 		StringBuilder function = new StringBuilder();
